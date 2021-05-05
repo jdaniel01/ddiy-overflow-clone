@@ -23,6 +23,7 @@ body {
   font-size: larger;
   color: #03110d;
   background-color: #ebebeb;
+  padding-top: 20px;
 }
 nav {
   display: grid;
