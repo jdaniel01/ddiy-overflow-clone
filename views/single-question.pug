@@ -1,0 +1,36 @@
+
+extends index
+include utils.pug
+
+block content
+    link(rel='stylesheet' href='/stylesheets/single-question.css')
+    div(class='alert-errors')
+        +validationErrorSummary(errors)
+        div(class='full-container')
+        div(class='question-body-container')
+            div(class='question-container')
+                h1(class="title")= title
+                div(class='asked')
+                    div(class='asked-container')
+                        h7(class='question-created') Asked: #{question.updatedAt}
+                    div(class='user-container')
+                        h7(class='question-user') User: #{question.User.name}
+                div 
+                    p #{question.query}
+                if(isUserLoggedIn)
+                    form(action= `/questions/${question.id}/delete` method= "post")
+                        input(type="hidden" name= "question" value=question.id)
+                        button(type="submit") Delete
+                    if (question.id)
+                        form(action= `/questions/${question.id}/edit` method= "get")
+                            button(type="submit" class='button-submit-question') Edit
+        div(class="question-answer-container")
+        if(!isOwner)
+            form(action= `/questions/${question.id}/answers` method= "post")
+                div
+                    label(for='answer-body') Please Enter Your Answer: 
+                div
+                    textarea(name="answer", cols="30", rows="10") 
+                button(type="submit") Submit Answer
+
+                

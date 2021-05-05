@@ -1,0 +1,27 @@
+extends layout 
+include utils
+
+block content 
+    link(rel="stylesheet" href="/stylesheets/user-edit-profile.css")
+    div 
+        div(class="profile-container")
+            div(class="profile-side-container")
+                div(class="profile-avatar-container")
+                    img(src=user.avatar)
+                div
+                    h4 User since:
+                    =user.createdAt
+                div
+                    button Delete Profile
+            div(class="profile-main-container")
+                +validationErrorSummary(errors)
+                form(action='/users/register' method='post')
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    +field('User Name', 'name', user.name, 'text', 'johndoe')
+                    +field('Email', 'email', user.email, 'email', 'john@doe.com')
+                    +field('Bio', 'bio', user.bio, 'textarea', 'Enter a bio here: ')
+                    +field('Avatar', 'avatar', user.avatar, 'text', 'Enter URL here: ')
+                    +field('Password', 'password', '', 'password', 'password')
+                    +field('Confirm Password', 'confirmPassword', '', 'password', 'password')
+                    div
+                        button(type="submit") Update

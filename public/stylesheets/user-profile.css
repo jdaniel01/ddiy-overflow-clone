@@ -1,0 +1,37 @@
+/*
+background1 - #EBEBEB
+background2 - #FDF0D5
+textColor dark - #03110D
+another gray - #77777E
+stand out color 1- #507255 
+standout color 2 - #
+clicked link - #00FFCD
+hover link - #5c5c5c
+untouched link - #77777E
+hover clicked touched link - #00cca3
+
+
+
+
+*/
+.profile-container {
+    display: flex;
+    background-color: #E0E0E0;
+}
+
+.profile-side-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #77777E;
+
+}
+
+.profile-avatar-container {
+    display: flex;
+    align-items: center;
+}
+
+.profile-main-container {
+    flex-direction: row;
+    background-color: #EBEBEB;
+}

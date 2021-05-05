@@ -1,0 +1,48 @@
+/*
+background1 - #EBEBEB
+background2 - #FDF0D5
+textColor dark - #03110D
+another gray - #77777E
+stand out color 1- #507255 
+standout color 2 - #
+clicked link - #00FFCD
+hover link - #5c5c5c
+untouched link - #77777E
+hover clicked touched link - #00cca3
+
+
+
+
+*/
+
+body {
+    background-color: #E0E0E0;
+}
+
+.title {
+    padding: 20px 20px;
+}
+
+#question-ask {
+    padding: 20px 20px;
+}
+
+.question-white-background {
+    background-color: white;
+    padding: 20px 20px;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
+}
+
+.question-title {
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.question-tip {
+    /* background-color: white; */
+    font-size: 14px;
+}
+
+.question-input {
+    width: 550px;
+}

@@ -1,0 +1,136 @@
+/*
+background1 - #EBEBEB
+background2 - #FDF0D5
+textColor dark - #03110D
+another gray - #77777E
+stand out color 1- #507255
+standout color 2 - #
+clicked link - #00FFCD
+hover link - #5c5c5c
+untouched link - #77777E
+hover clicked touched link - #00cca3
+
+
+
+
+*/
+
+h1 {
+  color: #507255;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: larger;
+  color: #03110d;
+  background-color: #ebebeb;
+}
+nav {
+  display: grid;
+  grid-template-areas: "logo search nav profile";
+  background-color: #fdf0d5;
+  grid-template-columns: 1fr 2fr 5fr 2fr;
+  align-items: center;
+  position: fixed;
+  padding: 2px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  box-shadow: 0rem 5px 5px #77777E;
+  margin: none;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  grid-area: "nav";
+  justify-content: space-around;
+}
+.nav-container div {
+  width: 1fr;
+}
+.logo-container {
+  grid-area: "logo";
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.search-container {
+  grid-area: "search";
+  display: flex;
+  flex-wrap: nowrap;
+  height: 75%;
+  align-items: center;
+}
+.search-container input::placeholder {
+  color: #77777e;
+  background-color: #ebebeb;
+}
+.search-submit {
+  background-color: #507255;
+  color: white;
+}
+
+.title-container {
+  color: red;
+}
+.user-container {
+}
+.user-container img {
+  height: 75%;
+}
+.welcome-message {
+}
+.img-container {
+}
+.index-container {
+  margin: 25px;
+  padding: 25px;
+}
+.index-topbar--container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 10px solid #507255;
+}
+.sorted-display {
+}
+
+.sorted-filter {
+}
+.index-body--container {
+  background-color: #fdf0d5;
+  box-shadow: 5px -5px 5px 0px #bcc6c0;
+}
+
+.index-question--container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 15px;
+  padding: 15px;
+}
+.index-question--info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 5px solid #507255;
+}
+.index-question--answers {
+  font-size: small;
+
+  height: 2.5rem;
+}
+.index-question--votes {
+  font-size: small;
+  height: 2.5rem;
+}
+.index-quesiton--content {
+  display: flex;
+  flex-direction: column;
+  height: 5rem;
+  border-bottom: 5px solid #507255;
+  align-content: center;
+  justify-content: center;
+}
+span#index-question--time {
+  justify-self: flex-end;
+  align-self: flex-end;
+  font-size: x-small;
+}

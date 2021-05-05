@@ -1,0 +1,19 @@
+extends index 
+include utils 
+
+block content 
+    link(rel='stylesheet' href='/stylesheets/single-question.css')
+    if(isUserLoggedIn)
+        form(action= `/questions/${question.id}/edit` method= "post")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            div(id="question-ask") 
+                div(class="question-white-background") 
+                    div(class='question-form')
+                        div(class='question-body') 
+                            h4(class='question-title') Title 
+                            p(class='question-tip') Be specific as if you were trying to impress a famous scientist
+                            input(class='question-input', type="text", name="title", value=title,  placeholder="e.g. How does the troposphere interact with the stratosphere given a specified altitude?")
+                            h4(class="question-title") Body
+                            p(class='question-tip') Include all the necessary information so that you can get the help you need
+                            textarea(name="query", cols="30", rows="10") 
+                        button(type="submit") Save Current Changes

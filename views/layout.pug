@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+      block head
+        title="Express Starter App"
+        link(rel='stylesheet' href='/stylesheets/index.css')
+  body
+    nav
+      .logo-container
+        div DDIY Overflow
+        a(href="/")
+      form.search-container(action=`/questions/:filter` method="post")
+        input(type="text" name="filter" placeholder="Looking for something?")
+        input.search-submit(type='submit' value='search')
+      .nav-container
+          div(onclick="location.href='/questions'") Ask?
+          div(onclick=`location.href='/about'`) About
+          div(onclick=`location.href='/users/login'`) Login
+          div(onclick=`location.href='/users/register'`) Register
+          div(onclick=`location.href='/demo'`) Demo
+      if (user)
+        .user-container
+          .wecome-message Welcome #{user.name}!
+          .img-container
+            img(src="")
+  block content

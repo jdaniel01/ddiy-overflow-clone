@@ -1,0 +1,25 @@
+extends layout 
+include utils
+
+block content 
+    link(rel="stylesheet" href="/stylesheets/user-profile.css")
+    div 
+        div(class="profile-container")
+            div(class="profile-side-container")
+                div(class="profile-avatar-container")
+                    img(src=user.avatar)
+                div
+                    h4 User since:
+                    =user.createdAt
+                div
+                    button Edit Profile
+            div(class="profile-main-container")
+                div
+                    h4 Username
+                    =user.name
+                div
+                    h4 Email
+                    =user.email
+                div
+                    h4 Bio
+                    =user.bio

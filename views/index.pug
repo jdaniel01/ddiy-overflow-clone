@@ -1,0 +1,32 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+  .title-container
+    h1= title
+    p Welcome to your Project Skeleton
+  .index-container
+    .index-topbar--container
+      .sorted-display
+        span#filter Newest Questions
+      .sorted-filter 
+        select
+          option(value="Newest") Newest
+          option(value="Oldest") Oldest
+          option(value="Most Answers") Most Answers
+          option(value="No Answers") No Answers
+          option(value="--more options--") --more options--
+    .index-body--container
+      each question in questions
+        .index-question--container 
+          .index-question--info 
+            .index-question--answers 3 Answers
+            .index-question--votes 99 Votes
+          .index-quesiton--content
+            span=question.title 
+            span#index-question--time=question.updatedAt

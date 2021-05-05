@@ -1,0 +1,24 @@
+extends layout
+include utils 
+block content 
+    link(rel='stylesheet' href='/stylesheets/new-question.css')
+    div 
+        div(class="question-container")
+            +validationErrorSummary(errors)
+            form(action="/questions" method="post")
+                input(type="hidden" name="_csrf" value=csrfToken)
+                div(id="question-ask") 
+                    h1(class="title") Ask an interesting question
+                    div(class="question-white-background") 
+                        div(class='question-form')
+                            div(class='question-body') 
+                                h4(class='question-title') Title 
+                                p(class='question-tip') Be specific as if you were trying to impress a famous scientist
+                                input(class='question-input', type="text", name="title", value=title,  placeholder="e.g. How does the troposphere interact with the stratosphere given a specified altitude?")
+                                h4(class="question-title") Body
+                                p(class='question-tip') Include all the necessary information so that you can get the help you need
+                                textarea(name="query", cols="30", rows="10") 
+                            button(type="submit" class='button-submit-question') Submit
+
+
+
