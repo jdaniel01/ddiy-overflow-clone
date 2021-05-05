@@ -4,7 +4,7 @@ const { requireAuth } = require("../auth");
 const db = require("../db/models");
 /* GET home page. */
 router.get("/", async (req, res) => {
-  const filter = req.body.filter;
+  let filter = req.body.filter;
   if (!filter) {
     filter = {
       order: [["updatedAt", "DESC"]],
