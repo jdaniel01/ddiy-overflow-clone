@@ -1,0 +1,18 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+  link(rel="stylesheet" href="/stylesheets/about.css")
+
+block content
+    .about-main--container 
+        .about-main--title 
+            h1 About Us
+        .about-main--body
+            .about-main--profile Nate
+            .about-main--profile James
+            .about-main--profile Jefferson
+            .about-main--profile Jonathan
