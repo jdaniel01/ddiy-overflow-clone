@@ -73,15 +73,11 @@ nav {
 .title-container {
   color: red;
 }
-.user-container {
-}
+
 .user-container img {
   height: 75%;
 }
-.welcome-message {
-}
-.img-container {
-}
+
 .index-container {
   margin: 25px;
   padding: 25px;
@@ -91,11 +87,7 @@ nav {
   justify-content: space-between;
   border-bottom: 10px solid #507255;
 }
-.sorted-display {
-}
 
-.sorted-filter {
-}
 .index-body--container {
   background-color: #fdf0d5;
   box-shadow: 5px -5px 5px 0px #bcc6c0;
