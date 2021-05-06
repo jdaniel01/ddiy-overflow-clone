@@ -53,6 +53,7 @@ router.get('/questions/:id(\\d+)', csrfProtection, asyncHandler(async (req, res)
         include: [User, Answer]
     });
     
+    
     const answers = await Answer.findAll({
         where: {
             questionId: question.id
@@ -60,13 +61,17 @@ router.get('/questions/:id(\\d+)', csrfProtection, asyncHandler(async (req, res)
         include: [User, Vote]
     });
 
-    const isUserLoggedIn = (req.session.auth.userId === question.ownerId) ? true : false
-    const isOwner = (req.session.auth.userId === question.ownerId) ? true : false
+    const abr = req.session.auth.userId
+    const isUserLoggedIn = (abr === question.ownerId) ? true : false
+    const isOwner = (abr === question.ownerId) ? true : false
 
+    // const isUserAnswerLoggedIn = (abr === question.Answer.ownerId) ? true : false
+    // const isAnswersOwner = (abr === question.Answer.ownerId) ? true : false
 
 
     res.render('single-question', {
         title: question.title,
+        abr,
         answers,
         question,
         isUserLoggedIn,
@@ -80,7 +85,6 @@ router.post('/questions/:id/edit', requireAuth, asyncHandler(async (req, res) =>
     const question = await Question.findByPk(questionId);
     await question.update({ title: req.body.title, query: req.body.query });
     await question.save();
-    console.log('Hey helloooooo *****')
     // res.render('edit-question', {
     //     question
     // })
@@ -90,7 +94,6 @@ router.post('/questions/:id/edit', requireAuth, asyncHandler(async (req, res) =>
 router.get('/questions/:id/edit', csrfProtection, asyncHandler(async (req, res) => {
     const questionId = parseInt(req.params.id, 10);
     const question = await Question.findByPk(questionId);
-    console.log(question)
     const isUserLoggedIn = (req.session.auth.userId === question.ownerId) ? true : false
     res.render('edit-question', {
         title: question.title,
@@ -109,6 +112,7 @@ router.get('/questions/:id/edit', csrfProtection, asyncHandler(async (req, res) 
 //     else {
 //         alert('This is not working')
 //     }
+
 
 // }))
 router.post('/questions/:id/delete', requireAuth, asyncHandler(async (req, res) => {
