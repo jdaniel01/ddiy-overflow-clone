@@ -5,11 +5,4 @@ module.exports = {
   'models-path': path.resolve('db', 'models'),
   'seeders-path': path.resolve('db', 'seeders'),
   'migrations-path': path.resolve('db', 'migrations')
-},
-production: {
-  use_env_variable: 'DATABASE_URL',
-  dialect: 'postgres',
-  eederStorage: 'sequelize'
-
-}
 };

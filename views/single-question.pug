@@ -17,6 +17,17 @@ block content
                         h7(class='question-user') User: #{question.User.name}
                 div 
                     p #{question.query}
+                    for answer in answers
+                        p #{answer.answer}
+                        div(class='asked-container')
+                            h7(class='question-created') Answered: #{answer.updatedAt}
+                        div(class='user-container')
+                        h7(class='question-user') User: #{answer.User.name}
+                        if(abr === answer.ownerId)
+                            form(action= `/questions/${answer.id}/answers/delete` method= "post")
+                                button(type="submit" value=answer.id) delete
+                            form(action= `/questions/${answer.id}/answers/edit` method= "get")
+                                button(type="submit" class='button-submit-question' value=answer.id) Edit Your Answer
                 if(isUserLoggedIn)
                     form(action= `/questions/${question.id}/delete` method= "post")
                         input(type="hidden" name= "question" value=question.id)
