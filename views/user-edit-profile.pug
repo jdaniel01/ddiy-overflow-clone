@@ -7,15 +7,15 @@ block content
         div(class="profile-container")
             div(class="profile-side-container")
                 div(class="profile-avatar-container")
-                    img(src=user.avatar)
-                div
+                    img(src=user.avatar, width=128, height=128)
+                div(class="profile-stats-container")
                     h4 User since:
                     =user.createdAt
                 div
-                    button Delete Profile
+                    button(class="delete-profile" type="submit") Delete Profile
             div(class="profile-main-container")
                 +validationErrorSummary(errors)
-                form(action='/users/register' method='post')
+                form(action=`'/users/edit/' + ${user.id}` method='post')
                     input(type='hidden' name='_csrf' value=csrfToken)
                     +field('User Name', 'name', user.name, 'text', 'johndoe')
                     +field('Email', 'email', user.email, 'email', 'john@doe.com')
@@ -25,3 +25,4 @@ block content
                     +field('Confirm Password', 'confirmPassword', '', 'password', 'password')
                     div
                         button(type="submit") Update
+                        div(class="cancel" onclick=`location.href='/users/' + ${user.id}`) Cancel
