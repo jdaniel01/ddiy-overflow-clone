@@ -3,3 +3,14 @@ include utils.pug
 block head
 block content
     +validationErrorSummary(errors)
+    .search-results-container
+        .question-results
+            if questions
+                each question in questions
+                    div.question--info(onclick=`location.href="/questions/${question.id}"`)
+                        .index-question--answers 3 Answers
+                        .index-question--votes 99 Votes
+                        .index-quesiton--content
+                        span=question.title
+                        span#index-question--time=question.updatedAt
+            if answers
