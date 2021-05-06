@@ -62,6 +62,51 @@ const userValidators = [
     }),
 ];
 
+const userEditValidators = [
+  check("name")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for First Name")
+    .isLength({ max: 100 })
+    .withMessage("First Name must not be more than 50 characters long"),
+  check("email")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for Email Address")
+    .isLength({ max: 255 })
+    .withMessage("Email Address must not be more than 255 characters long")
+    .isEmail()
+    .withMessage("Email Address is not a valid email"),
+  check("bio")
+    .exists({ checkFalsy: false })
+    .isLength({ max: 1000 })
+    .withMessage("Your bio is too long!"),
+  check("avatar")
+    .exists({ checkFalsy: false })
+    .matches(
+      /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+    ) //if theres an error lets make custom validation rule
+    .withMessage("Not a valid URL for avatar"),
+  check("password")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for Password")
+    .isLength({ max: 50 })
+    .withMessage("Password must not be more than 50 characters long")
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, "g")
+    .withMessage(
+      'Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'
+    ),
+  check("confirmPassword")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a value for Confirm Password")
+    .isLength({ max: 50 })
+    .withMessage("Confirm Password must not be more than 50 characters long")
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error("Confirm Password does not match Password");
+      }
+      return true;
+    }),
+]
+
 router.get("/register", csrfProtection, (req, res, next) => {
   const user = User.build();
   res.render("user-register", {
@@ -200,7 +245,7 @@ router.get(
 router.post(
   "/edit/:id(\\d+)",
   csrfProtection,
-  userValidators,
+  userEditValidators,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const userToUpdate = await User.findByPk(userId);
@@ -213,7 +258,7 @@ router.post(
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await userToUpdate.update(user);
-      res.redirect("/:id");
+      res.redirect(`/users/${userId}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("user-register", {
