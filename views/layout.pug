@@ -12,9 +12,9 @@ html
       .logo-container
         .img-container
           img(src="/images/DDIY-LOGO.png" onclick="location.href=`/`")
-      form.search-container(action=`/questions/:filter` method="post")
+      form.search-container(action=`/searches` method="post")
         input(type="text" name="filter" placeholder="Looking for something?")
-        input.search-submit(type='submit' value='search')
+        input.search-submit(type='submit' value='Search')
       .nav-container
           div(onclick="location.href='/questions'") Ask?
           div(onclick=`location.href='/about'`) About
