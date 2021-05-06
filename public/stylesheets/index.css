@@ -29,44 +29,75 @@ nav {
   display: grid;
   grid-template-areas: "logo search nav profile";
   background-color: #fdf0d5;
-  grid-template-columns: 1fr 2fr 5fr 2fr;
+  grid-template-columns: 1fr 2fr 5fr 3fr;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
-  padding: 2px;
   top: 0px;
   left: 0px;
   right: 0px;
-  box-shadow: 0rem 5px 5px #77777E;
-  margin: none;
+  box-shadow: 0rem 5px 5px hsl(240, 3%, 48%);
+  margin-top: -.5em;
+  border-top: .85rem solid hsl(129, 11%, 36%);
 }
 
+.body-container {
+  margin-top: 4.5rem;
+}
 .nav-container {
   display: flex;
   align-items: center;
   grid-area: "nav";
-  justify-content: space-around;
 }
 .nav-container div {
+  box-sizing: border-box;
+  height: 1fr;
   width: 1fr;
+  padding: 1rem;
 }
+.nav-container div:hover {
+  box-sizing: border-box;
+  width: 1fr;
+  background-color: #507255;
+  color: #ebebeb;
+  height: 1fr;
+  width: 1fr;
+  box-shadow: 1px 2px 2px hsl(240, 3%, 48%);
+  padding: 1rem;
+  border-radius: .25em;
+}
+
 .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
   grid-area: "logo";
-  margin-left: 5px;
-  margin-right: 5px;
+}
+.logo-container img {
+  height: 4.5em;
 }
 .search-container {
   grid-area: "search";
   display: flex;
   flex-wrap: nowrap;
-  height: 75%;
+  height: fit-content;
   align-items: center;
 }
 .search-container input::placeholder {
-  color: #77777e;
+  color: hsl(240, 3%, 48%);
   background-color: #ebebeb;
 }
+.search-container input::placeholder:focus {
+  color: #ebebeb;
+  background-color: rgb(119, 119, 126);
+}
+input {
+  border-radius: .25em;
+}
+
 .search-submit {
-  background-color: #507255;
+  background-color: hsl(129, 11%, 36%);
   color: white;
 }
 
@@ -74,8 +105,20 @@ nav {
   color: red;
 }
 
-.user-container img {
+.user-container {
+  grid-area: 'profile';
+  display: flex;
   height: 75%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 1rem;
+}
+.user-container img {
+  height: 2.5em;
+}
+.user-container div{
+  padding: 5px;
 }
 
 .index-container {
