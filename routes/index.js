@@ -18,5 +18,8 @@ router.get("/", async (req, res) => {
 router.get("/testingAuth", requireAuth, (req, res) => {
   res.send("You are logged in buddy");
 });
+router.get("/about", (req, res) => {
+  res.render("about", { title: "About" });
+});
 
 module.exports = router;

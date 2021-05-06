@@ -1,0 +1,14 @@
+.about-main--container {
+}
+.about-main--title {
+  display: flex;
+  justify-content: center;
+}
+
+.about-main--body {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.about-main--profile {
+}
