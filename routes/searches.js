@@ -9,7 +9,7 @@ function includedResults(searchElement, array) {
         for (let key in obj) {
             if(key.value.includes(searchElement)){
                 if (obj.name){
-                    const name = obj.name;
+                    const userName = obj.name;
                 }
                 else if (obj.title){
                     const title = obj.title;
@@ -19,16 +19,20 @@ function includedResults(searchElement, array) {
                     const answer = obj.answer;
                     const content = obj.content;
                 }
+
+                if(userName && userName.includes(searchElement)) {
+                    results.push(userName);
+                }
             }
         }
     })
+    return results;
 }
 
 router.post('/searches', asyncHandler(async (req, res)=> {
     const {filter} = req.body
-    let filters = filter.split(' ');
-    console.log(filters);
-    let results = {beginning: [], middle: [], compound: [], end: []}
+    let filters = filter.split(' ' || ', ' || ",");
+    let results = {beginning: [], middle: [], end: []}
     let searchWords = [];
     if (filters.length){
         if (filters.length === 1 && (filters[0] !== "")){
