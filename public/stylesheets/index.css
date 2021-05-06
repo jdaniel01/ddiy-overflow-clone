@@ -22,7 +22,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: larger;
   color: #03110d;
-  background-color: hsl(0, 0%, 92%);
+  background-color: #ebebeb;
   padding-top: 20px;
 }
 nav {
@@ -31,29 +31,42 @@ nav {
   background-color: #fdf0d5;
   grid-template-columns: 1fr 2fr 5fr 3fr;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
   box-shadow: 0rem 5px 5px hsl(240, 3%, 48%);
-  padding-bottom: .25em;
   margin-top: -.5em;
-
-
+  border-top: .85rem solid hsl(129, 11%, 36%);
 }
+
 .body-container {
-  margin-top: 4rem;
+  margin-top: 4.5rem;
 }
 .nav-container {
   display: flex;
   align-items: center;
   grid-area: "nav";
-  justify-content: space-around;
 }
 .nav-container div {
+  box-sizing: border-box;
+  height: 1fr;
   width: 1fr;
+  padding: 1rem;
 }
+.nav-container div:hover {
+  box-sizing: border-box;
+  width: 1fr;
+  background-color: #507255;
+  color: #ebebeb;
+  height: 1fr;
+  width: 1fr;
+  box-shadow: 1px 2px 2px hsl(240, 3%, 48%);
+  padding: 1rem;
+  border-radius: .25em;
+}
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -75,6 +88,14 @@ nav {
   color: hsl(240, 3%, 48%);
   background-color: #ebebeb;
 }
+.search-container input::placeholder:focus {
+  color: #ebebeb;
+  background-color: rgb(119, 119, 126);
+}
+input {
+  border-radius: .25em;
+}
+
 .search-submit {
   background-color: hsl(129, 11%, 36%);
   color: white;

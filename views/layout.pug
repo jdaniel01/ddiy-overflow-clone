@@ -5,9 +5,10 @@ html
     meta(name='viewport' content='width=device-width, initial-scale=1')
     title="Express Starter App"
     link(rel='stylesheet' href='/stylesheets/index.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
   block head
   body
-    nav
+    nav(class="animate__animated animate__slideInDown")
       .logo-container
         .img-container
           img(src="/images/DDIY-LOGO.png" onclick="location.href=`/`")
