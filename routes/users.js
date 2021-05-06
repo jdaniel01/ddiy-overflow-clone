@@ -197,22 +197,23 @@ router.get(
   }
 ));
 
-router.put(
+router.post(
   "/edit/:id(\\d+)",
   csrfProtection,
   userValidators,
   asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    const userToUpdate = await User.findByPk(userId);
+    
     const { name, email, bio, password, avatar } = req.body;
-    const user = User.build({ name, email, bio, avatar });
+    const user = { name, email, bio, password, avatar };
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-      //TODO hash password.
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
-      await user.save();
-      loginUser(req, res, user);
-      res.redirect("/");
+      await userToUpdate.update(user);
+      res.redirect("/:id");
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("user-register", {
