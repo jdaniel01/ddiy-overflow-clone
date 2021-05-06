@@ -3,7 +3,7 @@ background1 - #EBEBEB
 background2 - #FDF0D5
 textColor dark - #03110D
 another gray - #77777E
-stand out color 1- #507255 
+stand out color 1- #507255
 standout color 2 - #
 clicked link - #00FFCD
 hover link - #5c5c5c
@@ -14,24 +14,47 @@ hover clicked touched link - #00cca3
 
 
 */
-.profile-container {
-    display: flex;
-    background-color: #E0E0E0;
-}
 
-.profile-side-container {
+
+body {
+    margin-top: 50px;
+    background-color: #e0e0e0;
+  }
+  
+  .profile-container {
     display: flex;
+    background-color: #e0e0e0;
+  }
+  
+  .profile-side-container {
     flex-direction: column;
-    background-color: #77777E;
-
-}
-
-.profile-avatar-container {
-    display: flex;
-    align-items: center;
-}
-
-.profile-main-container {
-    flex-direction: row;
-    background-color: #EBEBEB;
-}
+    flex-basis: 200px;
+    background-color: #77777e;
+  }
+  
+  .profile-avatar-container {
+    display: inline-block;
+    margin: 20px;
+    padding: 6px;
+    background-color: white;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-stats-container {
+      font-size: small;
+      margin: 20px;
+  }
+  
+  .delete-profile {
+    display: inline-block;
+    border: 2px solid black;
+    background-color: #507255;
+    color: white;
+    margin: 20px;
+    padding: 6px;
+  }
+  
+  .profile-main-container {
+      padding-top: 20px;
+      padding-left: 20px;
+  }

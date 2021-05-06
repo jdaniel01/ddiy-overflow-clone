@@ -1,14 +1,17 @@
 doctype html
 html
   head
-      block head
-        title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/index.css')
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title="Express Starter App"
+    link(rel='stylesheet' href='/stylesheets/index.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
+  block head
   body
-    nav
+    nav(class="animate__animated animate__slideInDown")
       .logo-container
-        div DDIY Overflow
-        a(href="/")
+        .img-container
+          img(src="/images/DDIY-LOGO.png" onclick="location.href=`/`")
       form.search-container(action=`/questions/:filter` method="post")
         input(type="text" name="filter" placeholder="Looking for something?")
         input.search-submit(type='submit' value='search')
@@ -18,9 +21,15 @@ html
           div(onclick=`location.href='/users/login'`) Login
           div(onclick=`location.href='/users/register'`) Register
           div(onclick=`location.href='/demo'`) Demo
-      if (user)
+      if (user && user.name)
         .user-container
           .wecome-message Welcome #{user.name}!
           .img-container
-            img(src="")
+            img(src="/images/user-green.png" onclick=`location.href='/users/${user.id}'`)
+      else
+        .user-container
+          .wecome-message Welcome guest!
+          .img-container
+            img(src="/images/user-grey.png" onclick="location.href='/users/login'")
+  .body-container
   block content
