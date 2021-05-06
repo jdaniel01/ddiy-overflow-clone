@@ -12,7 +12,7 @@ block content
                     h4 User since:
                     =user.createdAt
                 div
-                    button(class="delete-profile" type="submit") Delete Profile
+                    div(class="delete-profile" onclick=`location.href='/users/delete/' + ${user.id}` type="submit") Delete Profile
             div(class="profile-main-container")
                 +validationErrorSummary(errors)
                 form(action=user.id method='post')

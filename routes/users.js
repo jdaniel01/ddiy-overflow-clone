@@ -271,4 +271,30 @@ router.post(
   })
 );
 
+router.get(
+  "/delete/:id(\\d+)",
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    const user = await User.findByPk(userId);
+
+    res.render("user-delete-profile", {
+      title: "Delete User Profile",
+      user,
+      csrfToken: req.csrfToken(),
+    });
+  }
+));
+
+router.post(
+  "/delete/:id(\\d+)",
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    const user = await User.findByPk(userId);
+
+    await user.destroy();
+    res.redirect("/");
+  })
+)
 module.exports = router;
