@@ -2,45 +2,17 @@ const express = require('express');
 const router = express.Router();
 const { User, Question, Answer } = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
-const {Op} = require('sequelize');
+const { Op } = require('sequelize');
 
-function includedResults(searchKeys, array) {
-    let results = { users: [], questions: [], answers: [] };
-
-    searchKeys.forEach(searchKey => {
-        array.forEach(obj => {
-            if (obj.name) {
-                if (obj.name.includes(searchKey)) {
-                    results.users.push(obj.name);
-                }
-            }
-            else if (obj.title) {
-                if (obj.title.includes(searchKey)) {
-                    results.push(obj.title);
-                }
-                if (obj.query.includes(searchKey)) {
-                    results.push(obj.query);
-                }
-            }
-            else if (obj.answer) {
-                if (obj.answer.includes(searchKey)) {
-                    results.push(obj.answer);
-                }
-                if (obj.content.includes(searchKey)) {
-                    results.push(obj.content);
-                }
-            }
-
-        })
-    })
-    return results;
-}
 
 router.post('/searches', asyncHandler(async (req, res) => {
-    const { filter } = req.body
+    const { filter } = req.body;
     let filters = filter.split(' ' || ', ' || ",");
-    let results = { beginning: [], middle: [], end: [] }
+
+    let results = [];
     let searchWords = [];
+
+
     if (filters.length) {
         if (filters.length === 1 && (filters[0] !== "")) {
             searchWords = filters;
@@ -53,10 +25,13 @@ router.post('/searches', asyncHandler(async (req, res) => {
             i = 0;
         }
     }
+
+
     if (!searchWords.length) {
         res.render('searches', { title: "Search Results", errors: ["You must provide search criteria."] })
     } else {
-        searchWords.forEach(async word => {
+
+        await searchWords.forEach(async word => {
 
             let questions = await Question.findAll({
                 where: {
@@ -69,10 +44,12 @@ router.post('/searches', asyncHandler(async (req, res) => {
                         { query: { [Op.endsWith]: word } },
                         { query: { [Op.substring]: word } },
                         { query: { [Op.iLike]: word } }
-                    ], include: {User}
+                    ]
                 }
             });
-
+            if (questions.length) {
+                results.push(...questions)
+            }
             let answers = await Answer.findAll({
                 where: {
                     [Op.or]: [
@@ -84,22 +61,19 @@ router.post('/searches', asyncHandler(async (req, res) => {
                         { content: { [Op.endsWith]: word } },
                         { content: { [Op.substring]: word } },
                         { content: { [Op.iLike]: word } }
-                    ], include: {User, Question}
+                    ]
                 }
             });
-
-            //     let answers = await Answer.findAll();
-            //     console.log(users);
-            res.render('searches', {questions, answers});
+            if (answers.length) {
+                results.push(...answers)
+            }
+            // res.render(answers);//('searches', {title: "Search Results", results});
+            console.log(results);
+            res.send(results);
         })
-        // let tables = [questions, users, answers];
-        // console.log(tables)
-        // let results = [];
-        // tables.forEach(table => {
-        //     results.push(...includedResults(searchWords, table));
-        // })
-        // console.log(results[0]);
     }
+
+
 }));
 
 
