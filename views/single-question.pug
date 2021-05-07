@@ -6,42 +6,55 @@ block content
     link(rel='stylesheet' href='/stylesheets/single-question.css')
     div(class='alert-errors')
         +validationErrorSummary(errors)
-        div(class='full-container')
+    div(class='full-container')
         div(class='question-body-container')
             div(class='question-container')
                 h1(class="title")= title
                 div(class='asked')
-                    div(class='asked-container')
-                        h7(class='question-created') Asked: #{question.updatedAt}
-                    div(class='user-container')
-                        h7(class='question-user') User: #{question.User.name}
-                div 
-                    p #{question.query}
-                    for answer in answers
-                        p #{answer.answer}
-                        div(class='asked-container')
-                            h7(class='question-created') Answered: #{answer.updatedAt}
-                        div(class='user-container')
-                        h7(class='question-user') User: #{answer.User.name}
-                        if(abr === answer.ownerId)
-                            form(action= `/questions/${answer.id}/answers/delete` method= "post")
-                                button(type="submit" value=answer.id) delete
-                            form(action= `/questions/${answer.id}/answers/edit` method= "get")
-                                button(type="submit" class='button-submit-question' value=answer.id) Edit Your Answer
-                if(isUserLoggedIn)
-                    form(action= `/questions/${question.id}/delete` method= "post")
-                        input(type="hidden" name= "question" value=question.id)
-                        button(type="submit") Delete
-                    if (question.id)
-                        form(action= `/questions/${question.id}/edit` method= "get")
-                            button(type="submit" class='button-submit-question') Edit
+                    div(class='question-subtitle')
+                        p(class='question-owner') 
+                            | Asked: 
+                            span(class="question-time-user") #{question.updatedAt}
+                            | User: 
+                            span(class="question-time-user") #{question.User.name}
+            hr
+            div 
+                p(class="question-query") #{question.query}
+                p Answers: #{answers.length}
+                for answer in answers
+                    div(class="answer-body")
+                        div(class="answer-votes")
+                            i(class="fas fa-chevron-up")
+                            p 101
+                            i(class="fas fa-chevron-down")
+                        div(class="answer-content")
+                            p #{answer.answer}
+                            div(class='asked-container')
+                                div(class='answer-user-info')
+                                    p
+                                        | Answered: 
+                                        span(class="answer-owner") #{answer.updatedAt}
+                                        | User: 
+                                        span(class="answer-owner") #{answer.User.name}
+                                if(abr === answer.ownerId)
+                                    div(class="answer-options")
+                                        form(action= `/questions/${answer.id}/answers/delete` method= "post")
+                                            button(type="submit" value=answer.id class="btn-delete-answer") delete
+                                        form(action= `/questions/${answer.id}/answers/edit` method= "get")
+                                            button(type="submit" class='button-submit-question' value=answer.id class="btn-edit-answer") Edit Your Answer
+                    hr
+            if(isUserLoggedIn)
+                form(action= `/questions/${question.id}/delete` method= "post")
+                    input(type="hidden" name= "question" value=question.id)
+                    button(type="submit") Delete
+                if (question.id)
+                    form(action= `/questions/${question.id}/edit` method= "get")
+                        button(type="submit" class='button-submit-question') Edit
         div(class="question-answer-container")
         if(!isOwner)
             form(action= `/questions/${question.id}/answers` method= "post")
                 div
                     label(for='answer-body') Please Enter Your Answer: 
                 div
-                    textarea(name="answer", cols="30", rows="10") 
-                button(type="submit") Submit Answer
-
-                
+                    textarea(name="answer", cols="100", rows="10", class="answer-body") 
+                button(type="submit" class="button-submit-answer") Submit Answer
