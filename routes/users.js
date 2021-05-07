@@ -3,8 +3,17 @@ var router = express.Router();
 const { User, Question, Answer } = require("../db/models");
 const { check, validationResult } = require("express-validator");
 const { asyncHandler, csrfProtection } = require("./utils");
+const { requireAuth } = require("../auth");
 const bcrypt = require("bcryptjs");
 const { loginUser, logoutUser } = require("../auth");
+
+const checkPermissions = (user, currentUser) => {
+  if (user.userId !== currentUser.id) {
+    const err = new Error("Illegal operation.");
+    err.status = 403; // Forbidden
+    throw err;
+  }
+};
 
 const userValidators = [
   //TODO Need to set up user validators.
@@ -220,6 +229,7 @@ router.get("/logout", (req, res) => {
 router.get(
   "/:id(\\d+)",
   csrfProtection,
+  requireAuth,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await User.findByPk(userId, {
@@ -237,9 +247,12 @@ router.get(
 router.get(
   "/edit/:id(\\d+)",
   csrfProtection,
+  requireAuth,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await User.findByPk(userId);
+
+    checkPermissions(user, res.locals.user);
 
     res.render("user-edit-profile", {
       title: "Edit User Profile",
@@ -252,10 +265,13 @@ router.get(
 router.post(
   "/edit/:id(\\d+)",
   csrfProtection,
+  requireAuth,
   userEditValidators,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const userToUpdate = await User.findByPk(userId);
+
+    checkPermissions(user, res.locals.user);
 
     const { name, email, bio, password, avatar } = req.body;
     const user = { name, email, bio, password, avatar };
@@ -281,9 +297,12 @@ router.post(
 router.get(
   "/delete/:id(\\d+)",
   csrfProtection,
+  requireAuth,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await User.findByPk(userId);
+
+    checkPermissions(user, res.locals.user);
 
     res.render("user-delete-profile", {
       title: "Delete User Profile",
@@ -295,12 +314,16 @@ router.get(
 
 router.post(
   "/delete/:id(\\d+)",
+  requireAuth,
   csrfProtection,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     // const user = await User.findByPk(userId);
     //const answer = Answer.findAll({ where: { ownerId: userId } });
     const question = Question.findAll({ where: { ownerId: userId } });
+
+    checkPermissions(user, res.locals.user);
+
     await Answer.destroy({ where: { ownerId: userId } });
     await Question.destroy({ where: { ownerId: userId } });
     await User.destroy({ where: { id: userId } });
