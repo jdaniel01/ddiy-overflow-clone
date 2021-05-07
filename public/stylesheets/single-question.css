@@ -1,34 +1,33 @@
 body {
-    background-color: #E6EEE0;
+  background-color: #e6eee0;
 }
-
 
 .full-container {
-    padding: 20px 10%;
+  padding: 20px 10%;
 }
 
-.title{
-    font-size: 30px;
+.title {
+  font-size: 30px;
 }
 
-.question-subtitle p{
-    font-size: 12px;
-    color: gray;
+.question-subtitle p {
+  font-size: 12px;
+  color: gray;
 }
 
-.question-subtitle p span{
-    color: #000;
-    padding-right: 20px;
+.question-subtitle p span {
+  color: #000;
+  padding-right: 20px;
 }
 
 .question-query {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .answer-body {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .answer-votes {
@@ -40,93 +39,98 @@ body {
 }
 
 .answer-content {
-    width: 95%;
-    padding-left: 12px;
+  width: 95%;
+  padding-left: 12px;
 }
-.asked-container{
-    display: flex;
-    flex-flow: row-reverse;
-    justify-content: space-between;
+.asked-container {
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-between;
 }
-.answer-options{
- display: flex;
- flex-direction: row;
-}
-
-.answer-options button{
- margin: 5px;
- border: none;
- background-color: none;
- color: gray;
- cursor: pointer;
+.answer-options {
+  display: flex;
+  flex-direction: row;
 }
 
+.answer-options button {
+  margin: 5px;
+  border: none;
+  background-color: none;
+  color: gray;
+  cursor: pointer;
+}
+.question-body-container {
+  background-color: #ebebeb;
+
+  box-shadow: 1em 2em 5em -2em rgb(0 0 0 / 75%);
+  padding: 2em;
+}
 /* .answer-options:hover button {
     background-color: #2c3645;
 } */
 
 .asked-container p {
-    font-size: 12px;
-    color: gray;
+  font-size: 12px;
+  color: gray;
 }
 
-.asked-container p span{
-    color: #000;
-    padding-right: 20px;
+.asked-container p span {
+  color: #000;
+  padding-right: 20px;
 }
 
 .answer-body {
-    outline-color: #507255;
+  outline-color: #507255;
 }
 
-textarea{
-    resize: none;
-    padding: 10px;
-    margin-top: 10px;
-    font-family: sans-serif;
+textarea {
+  resize: none;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: sans-serif;
 }
 
 .button-submit-answer {
-    background-color: #507255;
-    color: white;
-    font-size: 0.8em;
-    font-weight: 500;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    margin: 10px 5px 5px 0px;
-    padding: 10px;
-    cursor: pointer;
+  background-color: #507255;
+  color: white;
+  font-size: 0.8em;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 10px 5px 5px 0px;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.button-submit-answer::before{
-    content: '\f1d8';
-    color: white;
-    font-family: "Font Awesome 5 Free";
-    padding-right: 5px;
+.button-submit-answer::before {
+  content: "\f1d8";
+  color: white;
+  font-family: "Font Awesome 5 Free";
+  padding-right: 5px;
 }
 
-.button-submit-answer:hover{
- background-color:#2c3645;
- color: #fff;
- border: 1px solid #507255;
- border-color: rgb(39, 174, 96);
+.button-submit-answer:hover {
+  background-color: #2c3645;
+  color: #fff;
+  border: 1px solid #507255;
+  border-color: rgb(39, 174, 96);
 }
 
 .btn-delete-answer:hover {
-    background-color:#2c3645;
-    color: #fff;
-    border: 1px solid #507255;
+  background-color: #2c3645;
+  color: #fff;
+  border: 1px solid #507255;
 }
 
 .btn-delete-answer::before {
-    content: '\f2ed';
-    color: black;
-    font-family: "Font Awesome 5 Free";
-    padding-right: 5px;
+  content: "\f2ed";
+  color: black;
+  font-family: "Font Awesome 5 Free";
+  padding-right: 5px;
 }
 
 .btn-delete-answer:hover::before {
-    color: white;
+  color: white;
 }
 
 /* .btn-delete-answer {
@@ -154,18 +158,18 @@ textarea{
 } */
 
 .btn-edit-answer:hover {
-    background-color:#2c3645;
-    color: #fff;
-    border: 1px solid #507255;
-}  
+  background-color: #2c3645;
+  color: #fff;
+  border: 1px solid #507255;
+}
 
 .btn-edit-answer::before {
-    content: '\f1d8';
-    color: black;
-    font-family: "Font Awesome 5 Free";
-    padding-right: 5px;
+  content: "\f1d8";
+  color: black;
+  font-family: "Font Awesome 5 Free";
+  padding-right: 5px;
 }
 
 .btn-edit-answer:hover::before {
-    color: white;
+  color: white;
 }
