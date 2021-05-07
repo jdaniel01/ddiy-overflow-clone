@@ -5,6 +5,7 @@ append head
   link(rel="stylesheet" href="/stylesheets/index.css")
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
+  script(src='/javascripts/filtersIndex.js' )
 
 block content
   .title-container
@@ -15,15 +16,14 @@ block content
       .sorted-display
         span#filter Newest Questions
       .sorted-filter 
-        select
-          option(value="Newest") Newest
-          option(value="Oldest") Oldest
-          option(value="Most Answers") Most Answers
+        button(onclick=`switchDisplay('newest')`) Newest
+        button(onclick=`switchDisplay('oldest')`) Oldest
+        button(onclick=`switchDisplay('mostAnswered')`) Most Answered
     .index-body--container
-      each questions in questionsArr
-        .index-question--outer
+      each questions, index in questionsArr
+        div(class="index-question--outer"+index)
           each question in questions
-            .index-question--container(onclick=`location.href='/questions/' + ${question.id}`)
+            div(class='index-question--container' onclick=`location.href='/questions/' + ${question.id}`)
               .index-question--info 
                 .index-question--answers 3 Answers
                 .index-question--votes 99 Votes

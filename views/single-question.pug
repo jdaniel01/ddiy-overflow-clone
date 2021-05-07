@@ -42,7 +42,7 @@ block content
                                         button(type="submit" value=answer.id class="btn-delete-answer") delete
                                     form(action= `/questions/${answer.id}/answers/edit` method= "get")
                                         button(type="submit" class='button-submit-question' value=answer.id class="btn-edit-answer") Edit Your Answer
-                    hr
+                hr
             if(isUserLoggedIn)
                 form(action= `/questions/${question.id}/delete` method= "post")
                     input(type="hidden" name= "question" value=question.id)
