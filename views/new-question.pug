@@ -17,8 +17,9 @@ block content
                                 input(class='question-input', type="text", name="title", value=title,  placeholder="e.g. How does the troposphere interact with the stratosphere given a specified altitude?")
                                 h4(class="question-title") Body
                                 p(class='question-tip') Include all the necessary information so that you can get the help you need
-                                textarea(name="query", cols="30", rows="10") 
+                                div.Container-Grid
+                                    div.col-12
+                                        textarea(name="query", cols="100", rows="10", class='question-body') 
                             button(type="submit" class='button-submit-question') Submit
-
 
 

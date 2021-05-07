@@ -16,34 +16,88 @@ hover clicked touched link - #00cca3
 */
 
 body {
-    background-color: #E0E0E0;
+    background-color: #E6EEE0;
     padding-top: 20px;
 }
 
 .title {
-    padding: 20px 20px;
+    padding: 20px;
+    /* color: #507255; */
 }
 
+.question-container {
+    display: flex;
+    justify-content: center;
+}
 #question-ask {
-    padding: 20px 20px;
+    padding: 20px;
 }
 
 .question-white-background {
     background-color: white;
-    padding: 20px 20px;
+    padding: 20px;
     box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
+    color: black;
 }
 
 .question-title {
     font-weight: bold;
     padding-top: 10px;
+    color: #507255;
 }
 
 .question-tip {
     /* background-color: white; */
-    font-size: 14px;
+    font-size: 14px; 
+    color: gray;
 }
 
 .question-input {
-    width: 550px;
+    border-style: solid;
+    padding: 10px 0 10px 10px;
+    width: 98.5%;
+    outline-color: #507255;
+}
+
+.question-body {
+    outline-color: #507255;
+}
+
+.button-submit-question {
+    background-color: #507255;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 10px 5px 5px 0px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button-submit-question::before{
+    content: '\f1d8';
+    color: white;
+    font-family: "Font Awesome 5 Free";
+    padding-right: 5px;
+}
+
+.button-submit-question:hover{
+ background-color:#2c3645;
+ color: #fff;
+ border: 1px solid #507255;
+ /* border-color: rgb(39, 174, 96); */
+}
+.Container-Grid{
+    display: grid;
+}
+.col-12{
+    grid-column: 12;
+}
+
+textarea{
+    resize: none;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: sans-serif;
 }
