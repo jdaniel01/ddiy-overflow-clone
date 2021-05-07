@@ -1,11 +1,10 @@
 var express = require("express");
 var router = express.Router();
-const { User } = require("../db/models");
+const { User, Question, Answer } = require("../db/models");
 const { check, validationResult } = require("express-validator");
 const { asyncHandler, csrfProtection } = require("./utils");
 const bcrypt = require("bcryptjs");
 const { loginUser, logoutUser } = require("../auth");
-const { db } = require("../config");
 
 const userValidators = [
   //TODO Need to set up user validators.
@@ -217,8 +216,10 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
-    const user = await User.findByPk(userId);
-
+    const user = await User.findByPk(userId, {
+      include: [Question, Answer]
+    });
+    console.log(user);
     res.render("user-profile", {
       title: "User Profile",
       user,
