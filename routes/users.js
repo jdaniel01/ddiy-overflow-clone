@@ -63,7 +63,13 @@ const userValidators = [
 ];
 
 router.get("/register", csrfProtection, (req, res, next) => {
-  const user = User.build();
+  let user;
+  if (req.session.auth) {
+    user = req.session.auth.user;
+  } else {
+    user = User.build({});
+  }
+  console.log(user);
   res.render("user-register", {
     title: "User Register",
     csrfToken: req.csrfToken(),
@@ -162,10 +168,10 @@ router.post(
   })
 );
 
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   logoutUser(req, res);
   // res.redirect('/login')
-})
+});
 
 router.get(
   "/:id(\\d+)",
@@ -179,8 +185,8 @@ router.get(
       user,
       csrfToken: req.csrfToken(),
     });
-  }
-));
+  })
+);
 
 router.get(
   "/edit/:id(\\d+)",
@@ -194,8 +200,8 @@ router.get(
       user,
       csrfToken: req.csrfToken(),
     });
-  }
-));
+  })
+);
 
 router.post(
   "/edit/:id(\\d+)",
@@ -204,7 +210,7 @@ router.post(
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const userToUpdate = await User.findByPk(userId);
-    
+
     const { name, email, bio, password, avatar } = req.body;
     const user = { name, email, bio, password, avatar };
     const validatorErrors = validationResult(req);

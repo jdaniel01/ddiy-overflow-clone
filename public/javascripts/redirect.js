@@ -1,2 +1,2 @@
 window.alert("You are already logged in!");
-//window.location.replace("../");
+window.location.replace("../");
