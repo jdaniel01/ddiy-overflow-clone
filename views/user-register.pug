@@ -1,15 +1,29 @@
 extends layout 
 include utils
-
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+  link(rel="stylesheet" href="/stylesheets/user-register.css")
+  if(user)
+    script(src="/javascripts/redirect.js" type="module")
+        
 block content 
     +validationErrorSummary(errors)
-    form(action='/users/register' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('User Name', 'name', user.name, 'text', 'johndoe')
-        +field('Email', 'email', user.email, 'email', 'john@doe.com')
-        +field('Bio', 'bio', user.bio, 'textarea', 'Enter a bio here: ')
-        +field('Avatar', 'avatar', user.avatar, 'text', 'Enter URL here: ')
-        +field('Password', 'password', '', 'password', 'password')
-        +field('Confirm Password', 'confirmPassword', '', 'password', 'password')
-        div
-            button(type="submit") Register
+    .register-block--container
+        h2 Welcome to DDIY Overflow 
+        h3 Please register below
+        form(action='/users/register' method='post' class="register-block--form")
+            input(type='hidden' name='_csrf' value=csrfToken )
+            +field('User Name', 'name', user.name, 'text', 'johndoe')
+            +field('Email', 'email', user.email, 'email', 'john@doe.com')
+            label(for="bio") Bio 
+            +field('', 'bio', user.bio, 'textarea', 'Enter a bio here: ')
+            +field('Avatar', 'avatar', user.avatar, 'text', 'Enter URL here: ')
+            +field('Password', 'password', '', 'password', 'password')
+            +field('Confirm Password', 'confirmPassword', '', 'password', 'password')
+            div
+                button(type="submit") Register
+        p Already have an account?
+            button(onclick=`location.href='/users/login'`) Login

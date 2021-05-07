@@ -1,0 +1,56 @@
+/*
+background1 - #EBEBEB
+background2 - #FDF0D5
+textColor dark - #03110D
+another gray - #77777E
+stand out color 1- #507255
+standout color 2 - #
+clicked link - #00FFCD
+hover link - #5c5c5c
+untouched link - #77777E
+hover clicked touched link - #00cca3
+*/
+.body-container {
+  display: flex;
+  justify-content: center;
+}
+.login-block--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 5px solid #507255;
+  border-radius: 15px;
+  margin: 5% 25% 0% 25%;
+  width: 25%;
+  background-color: #fdf0d5;
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
+  padding: 2%;
+  text-align: center;
+  align-items: center;
+}
+.login-block--form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.login-block--form input {
+  padding: 2%;
+}
+.login-block--container h2 {
+  color: #507255;
+
+  font-size: medium;
+}
+.login-block--container h3 {
+  font-size: medium;
+}
+button {
+  border-radius: 0.25em;
+
+  background-color: hsl(129, 11%, 36%);
+  color: white;
+}
+button:hover {
+  background: hsl(131, 9%, 24%);
+}
