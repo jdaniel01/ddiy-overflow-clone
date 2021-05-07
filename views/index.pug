@@ -19,8 +19,6 @@ block content
           option(value="Newest") Newest
           option(value="Oldest") Oldest
           option(value="Most Answers") Most Answers
-          option(value="No Answers") No Answers
-          option(value="--more options--") --more options--
     .index-body--container
       each question in questions
         .index-question--container(onclick=`location.href='/questions/' + ${question.id}`)

@@ -2,9 +2,11 @@ var express = require("express");
 var router = express.Router();
 const { requireAuth } = require("../auth");
 const db = require("../db/models");
+const { Op } = require("sequelize");
+
 /* GET home page. */
 //really long function to get all filters
-const getFilters = async () => {
+const getFilters = async (req, res, next) => {
   //newest filter
   let newest = await db.Question.findAll({
     order: [["updatedAt", "DESC"]],
@@ -54,35 +56,29 @@ const getFilters = async () => {
     }
     return arr;
   };
-  //initializing array
-  // console.log("here");
-
+  //initializing array of most answers ids
   let MAArr = makeMAArr(findMostFrequent, mostAnswer);
   //using it to make call to get list
-
   mostAnswer = await db.Question.findAll({
     where: {
       id: {
         [Op.in]: MAArr,
       },
     },
+    limit: 10,
   });
-  console.log(mostAnswer);
+  let filterOptions = [newest, oldest, mostAnswer];
+  req.filters = filterOptions;
+  //no answers
+  //now next
+  next();
 };
 
 //routers start
-router.get("/", async (req, res) => {
-  let filter = req.body.filter;
-  if (!filter) {
-    filter = {
-      order: [["updatedAt", "DESC"]],
-      limit: 10,
-    };
-  }
-  const questions = await db.Question.findAll({
-    order: [["updatedAt", "DESC"]],
-    limit: 10,
-  });
+router.get("/", getFilters, async (req, res) => {
+  // console.log(req.filters[0].length);
+  let questions = req.filters;
+
   res.render("index", { title: "DDIY Overflow", questions });
 });
 
