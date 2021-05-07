@@ -10,6 +10,10 @@ const { loginUser, logoutUser, requireAuth } = require("../auth");
 router.get('/questions/:id/answer/:answerId/upvote', csrfProtection, asyncHandler(async (req, res) => {
     const answerId = req.params.answerId;
     const ownerId = req.session.auth.userId;
+    const questionId = parseInt(req.params.id, 10);
+    const question = await Question.findByPk(questionId, {
+        include: [User, Answer],
+      });
     const vote = await Vote.findOne({
         where: {
             answerId, ownerId
@@ -31,15 +35,19 @@ router.get('/questions/:id/answer/:answerId/upvote', csrfProtection, asyncHandle
         await vote.destroy();
     }
 
-    // const votes = await Vote.findAll({
-    //     where: {
-    //         answerId
-    //     }
-    // })
+    const answers = await Answer.findAll({
+        where: {
+          questionId: question.id,
+        },
+        include: [User, Vote],
+      });
     console.log("Here we are***********")
-    res.render('votes', {
+    console.log(answers[0])
+    res.render('single-question', {
         vote,
         upVote,
+        question,
+        answers,
         csrfToken: req.csrfToken()
     })
 }))
@@ -83,7 +91,7 @@ router.get('/questions/:id/answer/:answerId/downvote', csrfProtection, asyncHand
       });
 
 
-    res.render('votes', {
+    res.render('single-question', {
         vote,
         downVote,
         question,
