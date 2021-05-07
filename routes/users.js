@@ -219,7 +219,7 @@ router.get(
     const user = await User.findByPk(userId, {
       include: [Question, Answer]
     });
-    console.log(user);
+    
     res.render("user-profile", {
       title: "User Profile",
       user,
