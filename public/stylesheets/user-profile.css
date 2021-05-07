@@ -55,3 +55,37 @@ body{
 .profile-main-container {
     padding-left: 20px;
 }
+
+.user-questions {
+  background-color: #ebebeb;
+
+  box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%);
+  padding: 2em;
+  display: flex;
+  /* background-color: white; */
+  justify-content: space-evenly;
+  align-self: center;
+  /* border: px solid #507255; */
+  /* border-radius: 15px; */
+  /* padding: 2%; */
+  width: 90%;
+  margin: 1%;
+  text-align: left;
+}
+
+.user-answers {
+  background-color: #ebebeb;
+
+  box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%);
+  padding: 2em;
+  display: flex;
+  /* background-color: white; */
+  justify-content: space-evenly;
+  align-self: center;
+  /* border: px solid #507255; */
+  /* border-radius: 15px; */
+  /* padding: 2%; */
+  width: 90%;
+  margin: 1%;
+  text-align: left;
+}
