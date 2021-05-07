@@ -47,7 +47,7 @@ app.use("/users", usersRouter);
 app.use(questionRouter);
 app.use(answerRouter);
 app.use("/demo", demoRouter);
-app.use(searchRouter);
+app.use("/searches", searchRouter);
 app.use(voteRouter);
 
 // catch 404 and forward to error handler
