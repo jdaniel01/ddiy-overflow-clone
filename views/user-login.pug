@@ -7,7 +7,7 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
   link(rel="stylesheet" href="/stylesheets/user-login.css")
   if(user)
-      script(src="/javascripts/redirect.js" type="module")
+        script(src="/javascripts/redirect.js" type="module")
 block content 
     +validationErrorSummary(errors)
     .login-block--container

@@ -6,9 +6,8 @@ append head
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
   link(rel="stylesheet" href="/stylesheets/user-register.css")
-  if(user)
-    script(src="/javascripts/redirect.js" type="module")
-        
+  if(user && user.name)
+    script(src="/javascripts/redirect.js" type="module")       
 block content 
     +validationErrorSummary(errors)
     .register-block--container
