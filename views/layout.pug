@@ -15,7 +15,7 @@ html
         .img-container
           img(src="/images/DDIY-LOGO.png" onclick="location.href=`/`")
       form.search-container(action=`/searches` method="post")
-        input(type="text" name="filter" placeholder="Looking for something?")
+        input(type="search" name="filter" placeholder="Looking for something?")
 
         input.search-submit(type='submit' value='Search')
       .nav-container
@@ -36,3 +36,39 @@ html
             img(src="/images/user-grey.png" onclick="location.href='/users/login'")
   .body-container
     block content
+    block footer
+      footer.footer(class="animate__animated animate__fadeInUp")
+        h1 The Developers
+        .creators-foot
+          .user-foot(onclick=`location.href=\"https://github.com/nathanblaz\"`)
+            .user-title
+              h2 Nathan Blaz
+                p Full-Stack Software Developer
+                p (JavaScript, Express, CSS, Node)
+            .user-img
+              img(src="https://avatars.githubusercontent.com/u/24424412?v=4")
+            .user-projects
+          .user-foot(onclick=`location.href=\"https://github.com/JeffersonGarcia15\"`)
+            .user-title
+              h2 Jefferson Lopez Garcia
+                p Full-Stack Software Developer
+                p (JavaScript, Express, CSS, Node)
+            .user-img
+              img(src="https://avatars.githubusercontent.com/u/29271142?v=4")
+            .user-projects
+          .user-foot(onclick=`location.href=\"https://github.com/jsalgg\"`)
+            .user-title
+              h2 Jonathan Salguero
+                p Full-Stack Software Developer
+                p (JavaScript, Express, CSS, Node)
+            .user-img
+              img(src="https://avatars.githubusercontent.com/u/77176222?v=4")
+            .user-projects
+          .user-foot(onclick=`location.href=\"https://github.com/jdaniel01\"`)
+            .user-title
+              h2 James Daniel Jr.
+                p Full-Stack Software Developer
+                p (JavaScript, Express, CSS, Node)
+            .user-img
+              img(src="https://secure.gravatar.com/avatar/73dda48734b6731c3d8cc4e70a2b81ff?secure=true&size=300")
+            .user-projects
