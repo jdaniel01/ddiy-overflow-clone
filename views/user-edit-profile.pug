@@ -12,10 +12,10 @@ block content
                     h4 User since:
                     =user.createdAt
                 div
-                    button(class="delete-profile" type="submit") Delete Profile
+                    div(class="delete-profile" onclick=`location.href='/users/delete/' + ${user.id}` type="submit") Delete Profile
             div(class="profile-main-container")
                 +validationErrorSummary(errors)
-                form(action=`'/users/edit/' + ${user.id}` method='post')
+                form(action=user.id method='post')
                     input(type='hidden' name='_csrf' value=csrfToken)
                     +field('User Name', 'name', user.name, 'text', 'johndoe')
                     +field('Email', 'email', user.email, 'email', 'john@doe.com')
