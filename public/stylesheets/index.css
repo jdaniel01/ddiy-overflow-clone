@@ -210,8 +210,7 @@ span#index-question--time {
   border-radius: 0.25em;
   background-color: hsl(129, 11%, 36%);
   color: white;
-
-
+}
 .search-result--container {
   background-color: #ebebeb;
 
@@ -276,5 +275,4 @@ span#search-result--time {
   padding: 2%;
   align-items: center;
   margin: 1%;
-
 }
