@@ -9,7 +9,7 @@ append head
 block content
   .title-container
     h1= title
-    p Welcome to your Project Skeleton
+    p Don't do it yourself! Get help. (You need it)
   .index-container
     .index-topbar--container
       .sorted-display
@@ -23,7 +23,7 @@ block content
           option(value="--more options--") --more options--
     .index-body--container
       each question in questions
-        .index-question--container 
+        .index-question--container(onclick=`location.href='/questions/' + ${question.id}`)
           .index-question--info 
             .index-question--answers 3 Answers
             .index-question--votes 99 Votes

@@ -35,6 +35,8 @@ nav {
   box-shadow: 0rem 5px 5px hsl(240, 3%, 48%);
   margin-top: -0.5em;
   border-top: 0.85rem solid hsl(129, 11%, 36%);
+  width: 100%;
+
 }
 
 .body-container {
