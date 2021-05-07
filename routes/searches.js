@@ -4,25 +4,19 @@ const { User, Question, Answer } = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 const { Op } = require('sequelize');
 
-
 router.post('/searches', asyncHandler(async (req, res) => {
     const { filter } = req.body;
     let filters = filter.split(' ' || ', ' || ",");
 
     let results = [];
-    let searchWords = [];
+    let searchRegex;
 
 
     if (filters.length) {
         if (filters.length === 1 && (filters[0] !== "")) {
-            searchWords = filters;
+            searchRegex = new RegExp(filters[0])
         } else if (filters[0] !== "") {
-            let i = 0;
-            while (searchWords.length < filters.length) {
-                searchWords.push(filters[i])
-                i++;
-            }
-            i = 0;
+            searchRegex = makeRegex(filters);
         }
     }
 
