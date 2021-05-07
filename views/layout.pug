@@ -24,6 +24,7 @@ html
           div(onclick=`location.href='/users/login'`) Login
           div(onclick=`location.href='/users/register'`) Register
           div(onclick=`location.href='/demo'`) Demo
+          div(onclick=`location.href='/users/logout'`) Logout
       if (user && user.name)
         .user-container
           .wecome-message Welcome #{user.name}!

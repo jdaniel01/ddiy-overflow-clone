@@ -75,10 +75,11 @@ router.get(
       include: [User, Vote],
     });
 
-    let userAuth = req.session.auth.userId
+    let userAuth;
     let abr;
     if (req.session.auth) {
       abr = req.session.auth.user.userId;
+      userAuth = req.session.auth.userId;
     } else {
       abr = User.build({});
     }
@@ -122,7 +123,8 @@ router.get(
   asyncHandler(async (req, res) => {
     const questionId = parseInt(req.params.id, 10);
     const question = await Question.findByPk(questionId);
-    const isUserLoggedIn = req.session.auth.userId === question.ownerId ? true : false;
+    const isUserLoggedIn =
+      req.session.auth.userId === question.ownerId ? true : false;
     res.render("edit-question", {
       title: question.title,
       isUserLoggedIn,
