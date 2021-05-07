@@ -24,3 +24,15 @@ block content
                 div
                     h4 Bio
                     =user.bio
+        div(class="user-questions")
+            div
+                h4 #{user.name}'s Questions
+                    each question in user.Questions
+                        div=question.title 
+                        div=question.updatedAt
+            div
+                h4 #{user.name}'s Answers
+                    each answer in user.Answers
+                        div=answer.answer 
+                        div=answer.updatedAt
+            div
