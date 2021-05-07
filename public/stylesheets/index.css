@@ -18,7 +18,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: larger;
   color: #03110d;
-  background-color: #E6EEE0;
+  background-color: #e6eee0;
   padding-top: 20px;
 }
 nav {
@@ -204,4 +204,9 @@ span#index-question--time {
   justify-self: flex-end;
   align-self: flex-end;
   font-size: x-small;
+}
+.sorted-filter button {
+  border-radius: 0.25em;
+  background-color: hsl(129, 11%, 36%);
+  color: white;
 }
