@@ -18,30 +18,30 @@ block content
                             | User: 
                             span(class="question-time-user") #{question.User.name}
             hr
-            div 
-                p(class="question-query") #{question.query}
-                p Answers: #{answers.length}
-                for answer in answers
-                    div(class="answer-body")
-                        div(class="answer-votes")
-                            i(class="fas fa-chevron-up")
-                            p 101
-                            i(class="fas fa-chevron-down")
-                        div(class="answer-content")
-                            p #{answer.answer}
-                            div(class='asked-container')
-                                div(class='answer-user-info')
-                                    p
-                                        | Answered: 
-                                        span(class="answer-owner") #{answer.updatedAt}
-                                        | User: 
-                                        span(class="answer-owner") #{answer.User.name}
-                                if(abr === answer.ownerId)
-                                    div(class="answer-options")
-                                        form(action= `/questions/${answer.id}/answers/delete` method= "post")
-                                            button(type="submit" value=answer.id class="btn-delete-answer") delete
-                                        form(action= `/questions/${answer.id}/answers/edit` method= "get")
-                                            button(type="submit" class='button-submit-question' value=answer.id class="btn-edit-answer") Edit Your Answer
+            p(class="question-query") #{question.query}
+        div
+            p Answers: #{answers.length}
+            for answer in answers
+                div(class="answer-body")
+                    div(class="answer-votes")
+                        i(class="fas fa-chevron-up")
+                        p 101
+                        i(class="fas fa-chevron-down")
+                    div(class="answer-content")
+                        p #{answer.answer}
+                        div(class='asked-container')
+                            div(class='answer-user-info')
+                                p
+                                    | Answered: 
+                                    span(class="answer-owner") #{answer.updatedAt}
+                                    | User: 
+                                    span(class="answer-owner") #{answer.User.name}
+                            if(userAuth === answer.ownerId)
+                                div(class="answer-options")
+                                    form(action= `/questions/${answer.id}/answers/delete` method= "post")
+                                        button(type="submit" value=answer.id class="btn-delete-answer") delete
+                                    form(action= `/questions/${answer.id}/answers/edit` method= "get")
+                                        button(type="submit" class='button-submit-question' value=answer.id class="btn-edit-answer") Edit Your Answer
                     hr
             if(isUserLoggedIn)
                 form(action= `/questions/${question.id}/delete` method= "post")
