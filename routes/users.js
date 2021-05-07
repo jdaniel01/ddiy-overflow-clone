@@ -104,7 +104,7 @@ const userEditValidators = [
       }
       return true;
     }),
-]
+];
 
 router.get("/register", csrfProtection, (req, res, next) => {
   let user;
@@ -223,9 +223,9 @@ router.get(
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await User.findByPk(userId, {
-      include: [Question, Answer]
+      include: [Question, Answer],
     });
-    
+
     res.render("user-profile", {
       title: "User Profile",
       user,
@@ -290,18 +290,21 @@ router.get(
       user,
       csrfToken: req.csrfToken(),
     });
-  }
-));
+  })
+);
 
 router.post(
   "/delete/:id(\\d+)",
   csrfProtection,
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
-    const user = await User.findByPk(userId);
-
-    await user.destroy();
+    // const user = await User.findByPk(userId);
+    //const answer = Answer.findAll({ where: { ownerId: userId } });
+    const question = Question.findAll({ where: { ownerId: userId } });
+    await Answer.destroy({ where: { ownerId: userId } });
+    await Question.destroy({ where: { ownerId: userId } });
+    await User.destroy({ where: { id: userId } });
     res.redirect("/");
   })
-)
+);
 module.exports = router;
