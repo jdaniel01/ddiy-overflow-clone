@@ -1,11 +1,23 @@
 extends layout 
 include utils 
-
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+  link(rel="stylesheet" href="/stylesheets/user-login.css")
+  if(user)
+      script(src="/javascripts/redirect.js" type="module")
 block content 
     +validationErrorSummary(errors)
-    form(action="/users/login" method="post")
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Email', 'email', '', 'email')
-        +field('Password', 'password', '', 'password')
-        div
-            button(type='submit') Login
+    .login-block--container
+        h2 Welcome to DDIY Overflow 
+        h3 Please sign in below
+        form(action="/users/login" method="post" class="login-block--form")
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +field('Email', 'email', '', 'email')
+            +field('Password', 'password', '', 'password')
+            div
+                button(type='submit') Login
+        p Need to register? 
+            button(onclick=`location.href='/users/register'`) Register
