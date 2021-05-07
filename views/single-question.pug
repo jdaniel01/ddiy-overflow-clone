@@ -19,8 +19,7 @@ block content
                             span(class="question-time-user") #{question.User.name}
             hr
             p(class="question-query") #{question.query}
-        div 
-           
+        div
             p Answers: #{answers.length}
             for answer in answers
                 div(class="answer-body")
@@ -37,7 +36,7 @@ block content
                                     span(class="answer-owner") #{answer.updatedAt}
                                     | User: 
                                     span(class="answer-owner") #{answer.User.name}
-                            if(abr === answer.ownerId)
+                            if(userAuth === answer.ownerId)
                                 div(class="answer-options")
                                     form(action= `/questions/${answer.id}/answers/delete` method= "post")
                                         button(type="submit" value=answer.id class="btn-delete-answer") delete
