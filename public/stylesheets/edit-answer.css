@@ -1,0 +1,78 @@
+body {
+    background-color: #E6EEE0;
+    padding-top: 20px;
+}
+
+.answer-form {
+    padding: 20px;
+}
+
+.answer-flexbox-container {
+    /* margin: 2px 350px; */
+
+    display: flex;
+    justify-content: center;
+}
+
+.answer-owner {
+    font-size: 14px; 
+    color: gray;
+}
+
+.answer-time-container {
+    font-size: 14px; 
+
+}
+
+.answer-white-background {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
+    padding-bottom: 20px;
+
+}
+
+.answer-edit-title {
+    display: flex;
+    justify-content: center;
+    color: #507255;
+}
+
+.answer-edit-tip {
+    /* background-color: white; */
+    font-size: 14px; 
+    color: gray;
+}
+
+.btn-edit-submit {
+    background-color: #507255;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 10px 5px 5px 0px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btn-edit-submit:hover {
+    background-color:#2c3645;
+    color: #fff;
+    border: 1px solid #507255;
+}
+
+.btn-edit-submit::before {
+    content: '\f1d8';
+    color: white;
+    font-family: "Font Awesome 5 Free";
+    padding-right: 5px;
+}
+
+textarea{
+    resize: none;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: sans-serif;
+}

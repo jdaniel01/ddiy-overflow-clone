@@ -14,7 +14,9 @@ html
           img(src="/images/DDIY-LOGO.png" onclick="location.href=`/`")
       form.search-container(action=`/questions/:filter` method="post")
         input(type="text" name="filter" placeholder="Looking for something?")
-        input.search-submit(type='submit' value='search')
+        div 
+          button.search-submit(type='submit')
+            i(class="fas fa-search")  Search
       .nav-container
           div(onclick="location.href='/questions'") Ask?
           div(onclick=`location.href='/about'`) About
@@ -32,4 +34,5 @@ html
           .img-container
             img(src="/images/user-grey.png" onclick="location.href='/users/login'")
   .body-container
+  script(src="https://kit.fontawesome.com/a476cc5123.js" crossorigin="anonymous")
   block content

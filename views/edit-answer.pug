@@ -2,19 +2,23 @@ extends index
 include utils 
 
 block content 
-    link(rel='stylesheet' href='/stylesheets/single-question.css')
+    link(rel='stylesheet' href='/stylesheets/edit-answer.css')
     if(!isUserLoggedIn)
-        div(class='asked')
-            div(class='asked-container')
-                p(class='question-created') Answered By #{answer.createdAt}
-            div(class='user-container')
-            form(action= `/questions/${answer.id}/answers/edit` method= "post")
-                    input(type="hidden" name="_csrf" value=csrfToken)
-                    div(id="answer-edit") 
-                        div(class="question-white-background") 
-                            div(class='question-form')
-                                div(class='question-body') 
-                                    h4(class='question-title') Please Edit Your Answer 
-                                    p(class='question-tip') Be specific as if you were trying to impress a famous scientist
-                                    textarea(name="answer", cols="30", rows="10")= answer.answer 
-                                button(type="submit") Save Current Changes
+        div(class='answer')
+                div(class='asked-container')
+                    div(class='answer-user-info')
+                        p(class="answer-time-container")
+                            | Answered: 
+                            span(class="answer-owner") #{answer.updatedAt}
+        div(class="answer-flexbox-container")
+                div(class='user-container')
+                form(action= `/questions/${answer.id}/answers/edit` method= "post")
+                        input(type="hidden" name="_csrf" value=csrfToken)
+                        div(id="answer-edit")
+                            h4(class='answer-edit-title') Please Edit Your Answer 
+                            div(class="answer-white-background") 
+                                div(class='answer-form')
+                                    div(class='answer-edit-container') 
+                                        p(class='answer-edit-tip') Be specific as if you were trying to impress a famous scientist
+                                        textarea(name="answer", cols="100", rows="10")= answer.answer 
+                                    button(type="submit" class="btn-edit-submit") Save Current Changes
