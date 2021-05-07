@@ -1,0 +1,11 @@
+extends layout.pug
+
+block content
+  h3= user.name
+  div(class='py-4')
+    p Proceed with deleting this user profile?
+  div
+    form(action=`/users/delete/${user.id}` method='post')
+      input(type='hidden' name='_csrf' value=csrfToken)
+      button(class='delete' type='submit') Delete User
+      a(class='delete-profile' href=`location.href='/users/' + ${user.id}` role='button') Cancel

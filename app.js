@@ -11,6 +11,7 @@ const usersRouter = require("./routes/users");
 const questionRouter = require("./routes/questions");
 const answerRouter = require("./routes/answers");
 const demoRouter = require("./routes/demo");
+const searchRouter = require('./routes/searches');
 const { sessionSecret } = require("./config");
 const { loginUser, restoreUser, logoutUser, requireAuth } = require("./auth");
 const app = express();
@@ -45,6 +46,7 @@ app.use("/users", usersRouter);
 app.use(questionRouter);
 app.use(answerRouter);
 app.use("/demo", demoRouter);
+app.use(searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
