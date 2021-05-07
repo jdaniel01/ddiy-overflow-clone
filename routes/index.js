@@ -77,9 +77,9 @@ const getFilters = async (req, res, next) => {
 //routers start
 router.get("/", getFilters, async (req, res) => {
   // console.log(req.filters[0].length);
-  let questions = req.filters;
+  let questionsArr = req.filters;
 
-  res.render("index", { title: "DDIY Overflow", questions });
+  res.render("index", { title: "DDIY Overflow", questionsArr });
 });
 
 router.get("/testingAuth", requireAuth, (req, res) => {

@@ -20,11 +20,13 @@ block content
           option(value="Oldest") Oldest
           option(value="Most Answers") Most Answers
     .index-body--container
-      each question in questions
-        .index-question--container(onclick=`location.href='/questions/' + ${question.id}`)
-          .index-question--info 
-            .index-question--answers 3 Answers
-            .index-question--votes 99 Votes
-          .index-question--content
-            span=question.title 
-            span#index-question--time=question.updatedAt
+      each questions in questionsArr
+        .index-question--outer
+          each question in questions
+            .index-question--container(onclick=`location.href='/questions/' + ${question.id}`)
+              .index-question--info 
+                .index-question--answers 3 Answers
+                .index-question--votes 99 Votes
+              .index-question--content
+                span=question.title 
+                span#index-question--time=question.updatedAt
