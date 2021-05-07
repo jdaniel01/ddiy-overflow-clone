@@ -18,7 +18,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: larger;
   color: #03110d;
-  background-color: #ebebeb;
+  background-color: #E6EEE0;
   padding-top: 20px;
 }
 nav {
@@ -45,6 +45,7 @@ nav {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-color: #E6EEE0;
 }
 .nav-container {
   display: flex;
