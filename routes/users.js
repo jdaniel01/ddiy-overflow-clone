@@ -8,7 +8,9 @@ const bcrypt = require("bcryptjs");
 const { loginUser, logoutUser } = require("../auth");
 
 const checkPermissions = (user, currentUser) => {
-  if (user.userId !== currentUser.id) {
+  //we were trying to load userId from user but its just id
+
+  if (user.id !== currentUser.id) {
     const err = new Error("Illegal operation.");
     err.status = 403; // Forbidden
     throw err;
@@ -114,7 +116,6 @@ const userEditValidators = [
       return true;
     }),
 ];
-
 router.get("/register", csrfProtection, (req, res, next) => {
   let user;
   if (req.session.auth) {
@@ -243,6 +244,11 @@ router.get(
     });
   })
 );
+//!here
+
+// req.session.auth = {
+//   userId: user.id,
+//   user: user,
 
 router.get(
   "/edit/:id(\\d+)",
@@ -251,8 +257,9 @@ router.get(
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const user = await User.findByPk(userId);
-
-    checkPermissions(user, res.locals.user);
+    console.log("after 260:::" + user);
+    // checkPermissions(user, res.locals.user);
+    checkPermissions(user, req.session.auth.user);
 
     res.render("user-edit-profile", {
       title: "Edit User Profile",

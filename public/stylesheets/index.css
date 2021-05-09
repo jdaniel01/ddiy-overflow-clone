@@ -10,22 +10,21 @@ hover link - #5c5c5c
 untouched link - #77777E
 hover clicked touched link - #00cca3
 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
 
 h1 {
   color: #507255;
 }
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: larger;
   color: #03110d;
   background-color: #e6eee0;
   padding-top: 20px;
 }
 nav {
-  display: grid;
-  grid-template-areas: "logo search nav profile";
+  display: flex;
   background-color: #fdf0d5;
-  grid-template-columns: 1fr 2fr 5fr 3fr;
   align-items: center;
   justify-content: space-between;
   position: fixed;
@@ -36,7 +35,7 @@ nav {
   margin-top: -0.5em;
   border-top: 0.85rem solid hsl(129, 11%, 36%);
   width: 100%;
-  height: 10%;
+  max-width: 100%;
 }
 
 .body-container {
@@ -51,21 +50,15 @@ nav {
 .nav-container {
   display: flex;
   align-items: center;
-  grid-area: "nav";
 }
 .nav-container div {
   box-sizing: border-box;
-  height: 1fr;
-  width: 1fr;
   padding: 1rem;
 }
 .nav-container div:hover {
   box-sizing: border-box;
-  width: 1fr;
   background-color: #507255;
   color: #ebebeb;
-  height: 1fr;
-  width: 1fr;
   box-shadow: 1px 2px 2px hsl(240, 3%, 48%);
   padding: 1rem;
   border-radius: 0.25em;
@@ -76,7 +69,6 @@ nav {
   align-items: center;
   justify-content: center;
   align-content: center;
-  grid-area: "logo";
 }
 .logo-container img {
   height: 10rem;
@@ -84,7 +76,6 @@ nav {
   margin-top: -20%;
 }
 .search-container {
-  grid-area: "search";
   display: flex;
   flex-wrap: nowrap;
   height: fit-content;
@@ -116,13 +107,11 @@ textarea {
 }
 
 .user-container {
-  grid-area: "profile";
   display: flex;
-  height: 75%;
-  justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
   margin-top: 1rem;
+  justify-self: flex-end;
 }
 .user-container img {
   height: 7rem;
@@ -132,7 +121,6 @@ textarea {
 }
 
 .index-container {
-  margin: 25px;
   padding: 25px;
 }
 .index-topbar--container {
@@ -149,8 +137,8 @@ textarea {
   justify-content: center;
   /* border: 5px solid #507255;
   border-radius: 15px;
-  background-color: #fdf0d5;
-  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3); */
+  background-color: #fdf0d5; */
+  /* box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3); */
   padding: 2%;
   align-items: center;
   margin: 1%;
@@ -159,7 +147,7 @@ textarea {
 .index-question--container {
   background-color: #ebebeb;
 
-  box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%);
+  /* box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%); */
   padding: 2em;
   display: flex;
   /* background-color: white; */
@@ -174,6 +162,7 @@ textarea {
 }
 .index-question--container:hover {
   background-color: rgb(202, 200, 200);
+  box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%);
 }
 .index-question--info {
   color: #77777e;
@@ -214,7 +203,6 @@ span#index-question--time {
   border-radius: 0.25em;
   background-color: hsl(129, 11%, 36%);
   color: white;
-
 }
 .search-result--container {
   background-color: #ebebeb;
@@ -280,43 +268,41 @@ span#search-result--time {
   padding: 2%;
   align-items: center;
   margin: 1%;
-
 }
 footer {
   border-top: 1px solid hsl(129, 11%, 36%);
-  margin-top: 20%;
+  margin-top: 5rem;
   display: flex;
   flex-flow: column wrap;
-  background-color:rgb(202, 200, 200);
+  background-color: rgb(202, 200, 200);
   width: 100%;
   text-align: center;
   justify-content: center;
+  height: 10%;
 }
-.creators-foot{
+.creators-foot {
   border-top: 1px solid hsl(129, 11%, 36%);
   border-bottom: 1px solid hsl(129, 11%, 36%);
   display: flex;
-  width: 100%;
   justify-content: space-around;
   align-items: space-around;
-  height: fit-content;
+  height: 10%;
   background-color: #fdf0d5;
   padding: 3rem;
 }
-h1.dev-foot{
+h1.dev-foot {
   background-color: hsl(129, 11%, 36%);
   position: static;
   color: #fdf0d5;
   width: 100%;
   border-top: 1px solid #507255;
-
 }
-.user-img img{
-  height: 300px;
+.user-img img {
+  height: 10rem;
   border: 1px solid hsl(129, 11%, 36%);
-  border-radius: .5em;
+  border-radius: 0.5em;
 }
-.user-title{
+.user-title {
   background-color: #ebebeb;
   box-shadow: 1em 2em 2em rgb(202, 200, 200);
   border: 1px solid rgb(202, 200, 200);
@@ -326,9 +312,11 @@ h1.dev-foot{
 .user-title p {
   font-size: 10pt;
 }
-.user-foot{
+.user-foot {
   padding: 1rem;
+  background-color: rgb(202, 200, 200);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   box-shadow: 2rem 2rem 3rem #77777e;
+  height: auto;
 }
