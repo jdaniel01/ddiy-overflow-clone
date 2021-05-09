@@ -27,7 +27,7 @@ html
         .user-container
           .wecome-message Welcome #{user.name}!
           .img-container
-            img(src="/images/user-green.png" onclick=`location.href='/users/${user.id}'`)
+            img(src= user.avatar onclick=`location.href='/users/${user.id}'`)
       else
         .user-container
           .wecome-message Welcome guest!
