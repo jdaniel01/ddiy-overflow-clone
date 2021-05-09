@@ -20,9 +20,6 @@ router.get('/questions/:id/answer/:answerId/upvote', csrfProtection, asyncHandle
         }
     })
     let upVote;
-    console.log('This is value of vote', vote)
-    console.log('This is value of vote', answerId)
-    console.log('This is value of vote', ownerId)
     if (!vote) {
         upVote = Vote.build({
             ownerId,
@@ -41,8 +38,8 @@ router.get('/questions/:id/answer/:answerId/upvote', csrfProtection, asyncHandle
         },
         include: [User, Vote],
       });
-    console.log("Here we are***********")
-    console.log(answers[0])
+
+    res.redirect(`/questions/${question.id}`)
     res.render('single-question', {
         vote,
         upVote,
@@ -66,17 +63,24 @@ router.get('/questions/:id/answer/:answerId/downvote', csrfProtection, asyncHand
     })
     let downVote;
 
-    if (!vote) {
-        downVote = Vote.build({
-            userId,
-            answerId,
-            value: false,
-        });
-        await downVote.save()
-    }
-    else {
+    if (vote) {
         await vote.destroy();
     }
+    else {
+        if (vote != null) {
+            downVote = Vote.build({
+                ownerId,
+                answerId,
+                value: false,
+            });
+            await downVote.save()
+        }
+        // else {
+        //     res.redirect('back');
+        // }
+    }
+    let userAuth = req.session.auth.userId;
+    const isUserLoggedIn = userAuth === question.ownerId ? true : false;
 
     // const votes = await Vote.findAll({
     //     where: {
@@ -89,6 +93,7 @@ router.get('/questions/:id/answer/:answerId/downvote', csrfProtection, asyncHand
         },
         include: [User, Vote],
       });
+    res.redirect(`/questions/${question.id}`)
 
 
     res.render('single-question', {
@@ -96,6 +101,7 @@ router.get('/questions/:id/answer/:answerId/downvote', csrfProtection, asyncHand
         downVote,
         question,
         answers,
+        isUserLoggedIn,
         csrfToken: req.csrfToken()
     })
 }))
