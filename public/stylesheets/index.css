@@ -147,7 +147,7 @@ textarea {
 .index-question--container {
   background-color: #ebebeb;
 
-  box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%);
+  /* box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%); */
   padding: 2em;
   display: flex;
   /* background-color: white; */
@@ -314,6 +314,7 @@ h1.dev-foot {
 }
 .user-foot {
   padding: 1rem;
+  background-color: rgb(202, 200, 200);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   box-shadow: 2rem 2rem 3rem #77777e;
