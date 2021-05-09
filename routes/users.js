@@ -244,7 +244,6 @@ router.get(
     });
   })
 );
-//!here
 
 // req.session.auth = {
 //   userId: user.id,

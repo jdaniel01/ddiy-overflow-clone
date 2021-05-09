@@ -26,13 +26,14 @@ block content
                     =user.bio
         div 
             div(class="user-questions")
-                h4 #{user.name}'s Questions
+                h4#profile-question #{user.name}'s Questions
                     each question in user.Questions
-                        div=question.title 
-                        div=question.updatedAt
+                        .profile-question--container
+                            .profile-question--title=question.title 
+                            .profile-question--updated=question.updatedAt
             div(class="user-answers")
-                h4 #{user.name}'s Answers
+                h4#profile-question #{user.name}'s Answers
                     each answer in user.Answers
-                        div=answer.answer 
-                        div=answer.updatedAt
-            div
+                        .profile-answer--container
+                            .profile-answer--title=answer.answer 
+                            .profile-answer--updated=answer.updatedAt
