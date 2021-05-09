@@ -8,6 +8,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   newest = document.querySelector(".index-question--outer0");
   oldest = document.querySelector(".index-question--outer1");
   mostAnswered = document.querySelector(".index-question--outer2");
+  switchDisplay("newest");
 });
 var switchDisplay = (option) => {
   console.log(newest);
