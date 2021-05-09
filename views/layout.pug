@@ -27,7 +27,7 @@ html
         .user-container
           .wecome-message Welcome #{user.name}!
           .img-container
-            img(src="/images/user-green.png" onclick=`location.href='/users/${user.id}'`)
+            img(src= user.avatar onclick=`location.href='/users/${user.id}'`)
       else
         .user-container
           .wecome-message Welcome guest!
@@ -37,13 +37,14 @@ html
     block content
     block footer
       footer.footer(class="animate__animated animate__fadeInUp")
-        h1 The Developers
+        h1.dev-foot The Developers
         .creators-foot
           .user-foot(onclick=`location.href=\"https://github.com/nathanblaz\"`)
             .user-title
               h2 Nathan Blaz
                 p Full-Stack Software Developer
                 p (JavaScript, Express, CSS, Node)
+            p
             .user-img
               img(src="https://avatars.githubusercontent.com/u/24424412?v=4")
             .user-projects
@@ -52,6 +53,7 @@ html
               h2 Jefferson Lopez Garcia
                 p Full-Stack Software Developer
                 p (JavaScript, Express, CSS, Node)
+            p
             .user-img
               img(src="https://avatars.githubusercontent.com/u/29271142?v=4")
             .user-projects
@@ -60,6 +62,7 @@ html
               h2 Jonathan Salguero
                 p Full-Stack Software Developer
                 p (JavaScript, Express, CSS, Node)
+            p
             .user-img
               img(src="https://avatars.githubusercontent.com/u/77176222?v=4")
             .user-projects
@@ -68,6 +71,7 @@ html
               h2 James Daniel Jr.
                 p Full-Stack Software Developer
                 p (JavaScript, Express, CSS, Node)
+            p
             .user-img
               img(src="https://secure.gravatar.com/avatar/73dda48734b6731c3d8cc4e70a2b81ff?secure=true&size=300")
             .user-projects
