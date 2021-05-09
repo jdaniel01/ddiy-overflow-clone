@@ -12,13 +12,7 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const answerId = req.params.answerId;
-    let ownerId;
-    if (!req.session.auth) {
-      res.render("user-login", {
-        title: "Must be logged in to vote",
-      });
-    }
-    ownerId = req.session.auth.userId;
+    const ownerId = req.session.auth.userId;
     const questionId = parseInt(req.params.id, 10);
     const question = await Question.findByPk(questionId, {
       include: [User, Answer],
@@ -30,12 +24,6 @@ router.get(
       },
     });
     let upVote;
-<<<<<<< HEAD
-    console.log("This is value of vote", vote);
-    console.log("This is value of vote", answerId);
-    console.log("This is value of vote", ownerId);
-=======
->>>>>>> main
     if (!vote) {
       upVote = Vote.build({
         ownerId,
@@ -48,14 +36,13 @@ router.get(
     }
 
     const answers = await Answer.findAll({
-<<<<<<< HEAD
       where: {
         questionId: question.id,
       },
       include: [User, Vote],
     });
-    console.log("Here we are***********");
-    console.log(answers[0]);
+
+    res.redirect(`/questions/${question.id}`);
     res.render("single-question", {
       vote,
       upVote,
@@ -65,36 +52,13 @@ router.get(
     });
   })
 );
-=======
-        where: {
-          questionId: question.id,
-        },
-        include: [User, Vote],
-      });
-
-    res.redirect(`/questions/${question.id}`)
-    res.render('single-question', {
-        vote,
-        upVote,
-        question,
-        answers,
-        csrfToken: req.csrfToken()
-    })
-}))
->>>>>>> main
 
 router.get(
   "/questions/:id/answer/:answerId/downvote",
   csrfProtection,
   asyncHandler(async (req, res) => {
     const answerId = req.params.answerId;
-    let ownerId;
-    if (!req.session.auth) {
-      res.render("user-login", {
-        title: "Must be logged in to vote",
-      });
-    }
-    ownerId = req.session.auth.userId;
+    const ownerId = req.session.auth.userId;
     const questionId = parseInt(req.params.id, 10);
     const question = await Question.findByPk(questionId, {
       include: [User, Answer],
@@ -107,33 +71,20 @@ router.get(
     });
     let downVote;
 
-<<<<<<< HEAD
-    if (!vote) {
-      downVote = Vote.build({
-        userId,
-        answerId,
-        value: false,
-      });
-      await downVote.save();
-    } else {
-      await vote.destroy();
-=======
     if (vote) {
-        await vote.destroy();
-    }
-    else {
-        if (vote != null) {
-            downVote = Vote.build({
-                ownerId,
-                answerId,
-                value: false,
-            });
-            await downVote.save()
-        }
-        // else {
-        //     res.redirect('back');
-        // }
->>>>>>> main
+      await vote.destroy();
+    } else {
+      if (vote != null) {
+        downVote = Vote.build({
+          ownerId,
+          answerId,
+          value: false,
+        });
+        await downVote.save();
+      }
+      // else {
+      //     res.redirect('back');
+      // }
     }
     let userAuth = req.session.auth.userId;
     const isUserLoggedIn = userAuth === question.ownerId ? true : false;
@@ -144,37 +95,19 @@ router.get(
     //     }
     // })
     const answers = await Answer.findAll({
-<<<<<<< HEAD
       where: {
         questionId: question.id,
       },
       include: [User, Vote],
     });
-=======
-        where: {
-          questionId: question.id,
-        },
-        include: [User, Vote],
-      });
-    res.redirect(`/questions/${question.id}`)
-
-
-    res.render('single-question', {
-        vote,
-        downVote,
-        question,
-        answers,
-        isUserLoggedIn,
-        csrfToken: req.csrfToken()
-    })
-}))
->>>>>>> main
+    res.redirect(`/questions/${question.id}`);
 
     res.render("single-question", {
       vote,
       downVote,
       question,
       answers,
+      isUserLoggedIn,
       csrfToken: req.csrfToken(),
     });
   })
