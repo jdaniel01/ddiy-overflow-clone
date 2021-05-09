@@ -44,6 +44,7 @@ nav {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  align-content: center;
   background-color: #e6eee0;
 }
 .nav-container {
@@ -91,7 +92,7 @@ nav {
   background-color: #ebebeb;
 }
 .search-container input::placeholder:focus {
-  color: #ebebeb;
+  color: #947070;
   background-color: rgb(119, 119, 126);
 }
 input {
@@ -277,4 +278,40 @@ span#search-result--time {
   align-items: center;
   margin: 1%;
 
+}
+footer {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color:rgb(202, 200, 200);
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.creators-foot{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: space-around;
+  height: fit-content;
+  background-color: #fdf0d5;
+  padding: 3rem;
+}
+.def-foot{
+  position: static;
+  color: rgb(202, 200, 200);
+  right: 0;
+}
+.user-img img{
+  height: 300px;
+}
+.user-title{
+  background-color: #ebebeb;
+  box-shadow: 1em 2em 2em rgb(202, 200, 200);
+  border: 1px solid rgb(202, 200, 200);
+  padding: 2rem;
+  font-size: 12pt;
+
+}
+html {
+  justify-content: center;
 }

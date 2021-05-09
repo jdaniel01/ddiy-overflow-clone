@@ -6,6 +6,7 @@ const { Op } = require('sequelize');
 
 router.get('/:filter', asyncHandler(async (req, res) => {
     const filter = req.params.filter
+    // TODO need to change filter into a new regex with the correct symbols (ie parens, brace, etc.)
     console.log(filter);
     let results = [];
 
@@ -13,6 +14,7 @@ router.get('/:filter', asyncHandler(async (req, res) => {
         let questions = await Question.findAll({
             where: {
                 [Op.or]: [
+                    //TODO implement new regext with query.
                     { title: { [Op.startsWith]: filter } },
                     { title: { [Op.endsWith]: filter } },
                     { title: { [Op.substring]: filter } },
