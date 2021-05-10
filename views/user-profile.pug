@@ -1,10 +1,10 @@
-extends layout 
+extends layout
 include utils
 
 
-block content 
+block content
     link(rel="stylesheet" href="/stylesheets/user-profile.css")
-    div 
+    div
         div(class="profile-container")
             div(class="profile-side-container")
                 div(class="profile-avatar-container")
@@ -24,16 +24,16 @@ block content
                 div
                     h4 Bio
                     =user.bio
-        div 
+        div
             div(class="user-questions")
                 h4#profile-question #{user.name}'s Questions
                     each question in user.Questions
-                        .profile-question--container
-                            .profile-question--title=question.title 
+                        .profile-question--container(onclick=`location.href="/questions/${question.id}"`)
+                            .profile-question--title=question.title
                             .profile-question--updated=question.updatedAt
             div(class="user-answers")
                 h4#profile-question #{user.name}'s Answers
                     each answer in user.Answers
                         .profile-answer--container
-                            .profile-answer--title=answer.answer 
+                            .profile-answer--title=answer.answer
                             .profile-answer--updated=answer.updatedAt
