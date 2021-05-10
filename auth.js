@@ -30,8 +30,9 @@ const restoreUser = async (req, res, next) => {
   }
 };
 
-const logoutUser = (req, res) => {
+const logoutUser = async (req, res) => {
   delete req.session.auth;
+  await req.session.save()
   res.redirect("/users/login");
 };
 

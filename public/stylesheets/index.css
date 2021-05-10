@@ -308,7 +308,6 @@ h1.dev-foot {
 }
 .user-title {
   background-color: #ebebeb;
-  box-shadow: 1em 2em 2em rgb(202, 200, 200);
   border: 1px solid rgb(202, 200, 200);
   padding: 2rem;
   font-size: 12pt;
@@ -323,6 +322,9 @@ h1.dev-foot {
   border-bottom-right-radius: 1rem;
   box-shadow: 2rem 2rem 3rem #77777e;
   height: auto;
+}
+.user-foot:hover{
+  background-color: hsl(129, 11%, 36%);
 }
 
 
