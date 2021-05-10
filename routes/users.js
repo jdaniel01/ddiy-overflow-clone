@@ -276,11 +276,11 @@ router.post(
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const userToUpdate = await User.findByPk(userId);
-
+    user = req.session.auth.user;
     checkPermissions(user, res.locals.user);
 
     const { name, email, bio, password, avatar } = req.body;
-    const user = { name, email, bio, password, avatar };
+    user = { name, email, bio, password, avatar };
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
