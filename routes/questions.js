@@ -86,9 +86,6 @@ router.get(
     const isUserLoggedIn = userAuth === question.ownerId ? true : false;
     const isOwner = userAuth === question.ownerId ? true : false;
 
-    // const isUserAnswerLoggedIn = (abr === question.Answer.ownerId) ? true : false
-    // const isAnswersOwner = (abr === question.Answer.ownerId) ? true : false
-
     res.render("single-question", {
       title: question.title,
       abr,
@@ -110,9 +107,6 @@ router.post(
     const question = await Question.findByPk(questionId);
     await question.update({ title: req.body.title, query: req.body.query });
     await question.save();
-    // res.render('edit-question', {
-    //     question
-    // })
     res.redirect(`/questions/${questionId}`);
   })
 );
@@ -134,17 +128,6 @@ router.get(
   })
 );
 
-// router.get('/questions/:id/delete', asyncHandler(async (req, res) => {
-//     const question = await Question.findByPk(req.params.id);
-//     if (req.session.auth.userId === question.ownerId) {
-//         await question.destroy();
-//         res.redirect('/');
-//     }
-//     else {
-//         alert('This is not working')
-//     }
-
-// }))
 router.post(
   "/questions/:id/delete",
   requireAuth,
