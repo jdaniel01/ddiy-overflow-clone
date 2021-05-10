@@ -276,7 +276,7 @@ router.post(
   asyncHandler(async (req, res) => {
     const userId = parseInt(req.params.id, 10);
     const userToUpdate = await User.findByPk(userId);
-    user = req.session.auth.user;
+    user = userToUpdate;
     checkPermissions(user, res.locals.user);
 
     const { name, email, bio, password, avatar } = req.body;
