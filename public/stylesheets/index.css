@@ -36,6 +36,7 @@ nav {
   border-top: 0.85rem solid hsl(129, 11%, 36%);
   width: 100%;
   max-width: 100%;
+  font-size: 20pt;
 }
 
 .body-container {
@@ -76,6 +77,7 @@ nav {
   margin-top: -20%;
 }
 .search-container {
+
   display: flex;
   flex-wrap: nowrap;
   height: fit-content;
@@ -107,6 +109,7 @@ textarea {
 }
 
 .user-container {
+  font-size: 20pt;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
