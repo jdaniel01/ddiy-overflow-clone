@@ -14,8 +14,6 @@ block content
             if (result.title)
                 .search-result-container(class="search-result--container" onclick=`location.href="/questions/${result.id}"`)
                     .search-result--info
-                    .search-result--answers 3 Answers
-                    .search-result--votes 99 Votes
                     .search-result--content
                         span #{result.title.slice(0, (50 || null))}...
                         span#search-result--time=result.updatedAt
