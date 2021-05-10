@@ -74,11 +74,10 @@ router.get(
       },
       include: [User, Vote],
     });
-    
     let userAuth;
     let abr;
     if (req.session.auth) {
-      userAuth = req.session.auth.userId
+      userAuth = req.session.auth.userId;
       abr = req.session.auth.user.userId;
       userAuth = req.session.auth.userId;
     } else {

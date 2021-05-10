@@ -25,8 +25,8 @@ block content
           each question in questions
             div(class='index-question--container' onclick=`location.href='/questions/' + ${question.id}`)
               .index-question--info 
-                .index-question--answers 3 Answers
-                .index-question--votes 99 Votes
+                .index-question--answers 
+                .index-question--votes 
               .index-question--content
                 span=question.title 
                 span#index-question--time=question.updatedAt

@@ -325,6 +325,20 @@ h1.dev-foot {
   height: auto;
 }
 
+
+.profile-question--container {
+}
+.profile-question--title {
+}
+.profile-question--updated {
+}
+
+.profile-answer--container {
+}
+.profile-answer--title {
+}
+.profile-answer--updated {
+}
 .about-main--container{
   display: flex;
   flex-flow: column wrap;
@@ -346,4 +360,5 @@ h1.dev-foot {
   color: #ebebeb;
   padding: 2%;
   border-radius: .5rem;
+
 }
