@@ -279,6 +279,7 @@ footer {
   text-align: center;
   justify-content: center;
   height: 10%;
+
 }
 .creators-foot {
   border-top: 1px solid hsl(129, 11%, 36%);
@@ -319,4 +320,27 @@ h1.dev-foot {
   border-bottom-right-radius: 1rem;
   box-shadow: 2rem 2rem 3rem #77777e;
   height: auto;
+}
+
+.about-main--container{
+  display: flex;
+  flex-flow: column wrap;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebebeb;
+  border: 1px solid hsl(129, 11%, 36%);
+  padding: 3%;
+}
+.about-main--body{
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 18pt;
+}
+.ddiy-link{
+  font-size: 20pt;
+  background-color: hsl(129, 11%, 36%);
+  color: #ebebeb;
+  padding: 2%;
+  border-radius: .5rem;
 }
