@@ -6,12 +6,12 @@
 
 # 
 ## Table of content
-1. [Getting started](https://github.com/jdaniel01/#getting-started)
-2. [Technologies Used](https://github.com/jdaniel01/#technologies-used)
-3. [Key Features](https://github.com/jdaniel01/#key-features)
-4. [Code Snippets](https://github.com/jdaniel01/#code-snippets)
-5. [Wiki](https://github.com/jdaniel01/#wiki-pages)
-6. [Future goals](https://github.com/jdaniel01/#future-goals)
+1. [Getting started](https://github.com/jdaniel01/ddiy-overflow-clone#getting-started)
+2. [Technologies Used](https://github.com/jdaniel01/ddiy-overflow-clone#technologies-used)
+3. [Key Features](https://github.com/jdaniel01/ddiy-overflow-clone#key-features)
+4. [Code Snippets](https://github.com/jdaniel01/ddiy-overflow-clone#code-snippets)
+5. [Wiki](https://github.com/jdaniel01/ddiy-overflow-clone#wiki)
+6. [Future goals](https://github.com/jdaniel01/ddiy-overflow-clone#future-goals)
 
 #
 ## Getting Started
