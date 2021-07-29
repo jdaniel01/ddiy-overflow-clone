@@ -16,8 +16,8 @@ block content
         h3 Please sign in below
         form(action="/users/login" method="post" class="login-block--form")
             input(type='hidden' name='_csrf' value=csrfToken)
-            +field('Email', 'email', '', 'email')
-            +field('Password', 'password', '', 'password')
+            +field('Email', 'email', '', 'email', 'username')
+            +field('Password', 'password', '', 'password', 'current-password')
             div
                 button(type='submit') Login
         p Need to register? 

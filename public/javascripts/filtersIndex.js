@@ -3,7 +3,7 @@ let oldest;
 let mostAnswered;
 let span;
 window.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
+  // console.log("DOM fully loaded and parsed");
   span = document.getElementById("filter");
   newest = document.querySelector(".index-question--outer0");
   oldest = document.querySelector(".index-question--outer1");
@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   switchDisplay("newest");
 });
 var switchDisplay = (option) => {
-  console.log(newest);
+  // console.log(newest);
   if (option === "newest") {
     span.innerHTML = "Newest" + " Questions";
     oldest.hidden = true;
