@@ -322,6 +322,7 @@ h1.dev-foot {
   border-bottom-right-radius: 1rem;
   box-shadow: 2rem 2rem 3rem #77777e;
   height: auto;
+  cursor: pointer;
 }
 .user-foot:hover{
   background-color: hsl(129, 11%, 36%);
