@@ -306,6 +306,10 @@ h1.dev-foot {
   border: 1px solid hsl(129, 11%, 36%);
   border-radius: 0.5em;
 }
+.user-img img:hover {
+  border: 1px solid #ebebeb;
+  cursor: pointer;
+}
 .user-title {
   background-color: #ebebeb;
   border: 1px solid rgb(202, 200, 200);
@@ -315,6 +319,16 @@ h1.dev-foot {
 .user-title p {
   font-size: 10pt;
 }
+.user-projects {
+  font-size: 20pt;
+}
+.fab {
+  padding: 0 20px;
+}
+.fab:hover {
+  color: #ebebeb;
+  cursor: pointer;
+}
 .user-foot {
   padding: 1rem;
   background-color: rgb(202, 200, 200);
@@ -322,7 +336,6 @@ h1.dev-foot {
   border-bottom-right-radius: 1rem;
   box-shadow: 2rem 2rem 3rem #77777e;
   height: auto;
-  cursor: pointer;
 }
 .user-foot:hover{
   background-color: hsl(129, 11%, 36%);
