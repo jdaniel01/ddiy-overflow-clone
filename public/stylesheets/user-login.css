@@ -53,5 +53,5 @@ button {
 }
 button:hover {
   background: hsl(131, 9%, 24%);
+  cursor: pointer;
 }
-

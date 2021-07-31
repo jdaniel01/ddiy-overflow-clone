@@ -63,6 +63,7 @@ nav {
   box-shadow: 1px 2px 2px hsl(240, 3%, 48%);
   padding: 1rem;
   border-radius: 0.25em;
+  cursor: pointer;
 }
 
 .logo-container {
@@ -70,6 +71,9 @@ nav {
   align-items: center;
   justify-content: center;
   align-content: center;
+}
+.logo-container:hover {
+  cursor: pointer;
 }
 .logo-container img {
   height: 10rem;
@@ -162,10 +166,12 @@ textarea {
   width: 90%;
   margin: 1%;
   text-align: left;
+  border: 1px solid hsl(129, 11%, 36%);
 }
 .index-question--container:hover {
   background-color: rgb(202, 200, 200);
   box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%);
+  cursor: pointer;
 }
 .index-question--info {
   color: #77777e;
@@ -206,6 +212,10 @@ span#index-question--time {
   border-radius: 0.25em;
   background-color: hsl(129, 11%, 36%);
   color: white;
+}
+.sorted-filter button:hover {
+  background: hsl(131, 9%, 24%);
+  cursor: pointer;
 }
 .search-result--container {
   background-color: #ebebeb;
@@ -365,16 +375,27 @@ h1.dev-foot {
   border: 1px solid hsl(129, 11%, 36%);
   padding: 3%;
 }
-.about-main--body{
+.about-main--body {
   display: flex;
   flex-flow: column nowrap;
   font-size: 18pt;
 }
-.ddiy-link{
+.ddiy-link {
   font-size: 20pt;
   background-color: hsl(129, 11%, 36%);
   color: #ebebeb;
   padding: 2%;
   border-radius: .5rem;
-
+}
+.ddiy-link:hover {
+  background-color:#2c3645;
+  color: #fff;
+  cursor: pointer;
+}
+.user-container img {
+  cursor: pointer;
+  object-fit: cover;
+  border-radius: 50%;
+  width: 112px;
+  height: 112px;
 }
