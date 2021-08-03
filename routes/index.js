@@ -75,11 +75,8 @@ const getFilters = async (req, res, next) => {
 };
 
 //routers start
-router.get("/", getFilters, async (req, res) => {
-  // console.log(req.filters[0].length);
-  let questionsArr = req.filters;
-
-  res.render("index", { title: "DDIY Overflow", questionsArr });
+router.get("/", (req, res) => {
+  res.render("about", { title: "About" });
 });
 
 router.get("/testingAuth", requireAuth, (req, res) => {
@@ -87,6 +84,12 @@ router.get("/testingAuth", requireAuth, (req, res) => {
 });
 router.get("/about", (req, res) => {
   res.render("about", { title: "About" });
+});
+router.get("/home", getFilters, async (req, res) => {
+  // console.log(req.filters[0].length);
+  let questionsArr = req.filters;
+
+  res.render("index", { title: "DDIY Overflow", questionsArr });
 });
 
 module.exports = router;

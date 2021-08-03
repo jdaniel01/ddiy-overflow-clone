@@ -3,7 +3,7 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    title="Express Starter App"
+    title="DDIY Overflow"
     script(src="https://kit.fontawesome.com/a476cc5123.js")
     link(rel='stylesheet' href='/stylesheets/index.css')
     script(src="../javascripts/index.js")
@@ -17,61 +17,73 @@ html
         .search-container
           input(type="search" id="search-filter" placeholder="Looking for something?")
       .nav-container
-          div(onclick="location.href='/questions'") Ask?
-          div(onclick=`location.href='/about'`) About
-          div(onclick=`location.href='/users/login'`) Login
-          div(onclick=`location.href='/users/register'`) Register
-          div(onclick=`location.href='/demo'`) Demo
-          div(onclick=`location.href='/users/logout'`) Logout
+          div(onclick="location.href='/home'") All questions
+          div(onclick="location.href='/questions'") Ask a question
+          if (user && user.name)
+            div(onclick=`location.href='/users/logout'`) Logout
+          //- div(onclick=`location.href='/about'`) About
+          
       if (user && user.name)
         .user-container
-          .wecome-message Welcome #{user.name}!
+          .wecome-message Welcome, #{user.name}!
           .img-container
             img(src= user.avatar onclick=`location.href='/users/${user.id}'`)
       else
-        .user-container
-          .wecome-message Welcome guest!
-          .img-container
-            img(src="/images/user-grey.png" onclick="location.href='/users/login'")
+        .nav-container 
+          div(class="demo-btn" onclick=`location.href='/demo'`) Demo
+          div(onclick=`location.href='/users/login'`) Login
+          div(onclick=`location.href='/users/register'`) Register
+        //- .user-container
+          //- .wecome-message Welcome guest!
+          //- .img-container
+          //-   img(src="/images/user-grey.png" onclick="location.href='/users/login'")
   .body-container
     block content
     block footer
       footer.footer(class="animate__animated animate__fadeInUp")
         h1.dev-foot The Developers
         .creators-foot
-          .user-foot(onclick=`location.href=\"https://github.com/nathanblaz\"`)
+          .user-foot
             .user-title
               h2 Nathan Blaz
                 p Full-Stack Software Developer
                 p (JavaScript, Express, CSS, Node)
             p
             .user-img
-              img(src="https://avatars.githubusercontent.com/u/24424412?v=4")
+              img(src="https://avatars.githubusercontent.com/u/24424412?v=4" onclick=`location.href=\"https://nathanblaz.github.io/\"`)
             .user-projects
-          .user-foot(onclick=`location.href=\"https://github.com/JeffersonGarcia15\"`)
+              i(class="fab fa-github" onclick=`location.href=\"https://github.com/nathanblaz\"`)
+              i(class="fab fa-linkedin" onclick=`location.href=\"https://linkedin.com/in/nathan-blaz-66489a8\"`)
+          .user-foot
             .user-title
               h2 Jefferson Lopez Garcia
                 p Full-Stack Software Developer
                 p (JavaScript, Express, CSS, Node)
             p
             .user-img
-              img(src="https://avatars.githubusercontent.com/u/29271142?v=4")
+              img(src="https://avatars.githubusercontent.com/u/29271142?v=4" onclick=`location.href=\"https://github.com/JeffersonGarcia15\"`)
             .user-projects
-          .user-foot(onclick=`location.href=\"https://github.com/jsalgg\"`)
+              i(class="fab fa-github" onclick=`location.href=\"https://github.com/JeffersonGarcia15\"`)
+              i(class="fab fa-linkedin" onclick=`location.href=\"https://www.linkedin.com/in/jefferson-l-65b193120/\"`)
+          .user-foot
             .user-title
               h2 Jonathan Salguero
                 p Full-Stack Software Developer
                 p (JavaScript, Express, CSS, Node)
             p
             .user-img
-              img(src="https://avatars.githubusercontent.com/u/77176222?v=4")
+              img(src="https://avatars.githubusercontent.com/u/77176222?v=4" onclick=`location.href=\"https://github.com/jsalgg\"`)
             .user-projects
-          .user-foot(onclick=`location.href=\"https://github.com/jdaniel01\"`)
+              i(class="fab fa-github" onclick=`location.href=\"https://github.com/jsalgg\"`)
+              i(class="fab fa-linkedin" onclick=`location.href=\"https://www.linkedin.com/in/josalgue/\"`)
+          .user-foot
             .user-title
               h2 James Daniel Jr.
                 p Full-Stack Software Developer
                 p (JavaScript, Express, CSS, Node)
             p
             .user-img
-              img(src="https://secure.gravatar.com/avatar/73dda48734b6731c3d8cc4e70a2b81ff?secure=true&size=300")
+              img(src="https://secure.gravatar.com/avatar/73dda48734b6731c3d8cc4e70a2b81ff?secure=true&size=300" onclick=`location.href=\"https://github.com/jdaniel01\"`)
             .user-projects
+              i(class="fab fa-github" onclick=`location.href=\"https://github.com/jdaniel01\"`)
+              i(class="fab fa-linkedin" onclick=`location.href=\"https://www.linkedin.com/in/james-daniel-jr-403178189\"`)  
