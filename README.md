@@ -52,7 +52,7 @@
 
 **Query for finding a question by its id with its associated answers**
 
-The following code allows us to get to a specific question based on its id. Once the question is displayed, the associated answers should be displayed.
+* The following code allows us to get to a specific question based on its id. Once the question is displayed, the associated answers should be displayed. 
 
 ```js
 const questionId = parseInt(req.params.id, 10);
@@ -71,7 +71,7 @@ const answers = await Answer.findAll({
 
 **Query for modifying an answer**
 
-By using post, an answer can successfully be modified by the answer's owner. Most of the logic can be found in the associated pug.js file which ensures that **only** the answer owner can modified and even delete his/her answer
+* By using post, an answer can successfully be modified by the answer's owner. Most of the logic can be found in the associated pug.js file which ensures that **only** the answer owner can modified and even delete his/her answer
 
 ```js
 const answerId = parseInt(req.params.id, 10);
@@ -83,7 +83,7 @@ res.redirect(`/questions/${answer.questionId}`);
 
 **Query for down voting an answer**
 
-The following code snippet allows a user to down vote an answer. Below there are steps on how to find a vote by id, and let JavaScript decide weather to validate the down vote or not. This will be updated in the future to make voting dynamic by using a fetch call and DOM manipulation
+* The following code snippet allows a user to down vote an answer. Below there are steps on how to find a vote by id, and let JavaScript decide weather to validate the down vote or not. This will be updated in the future to make voting dynamic by using a fetch call and DOM manipulation
 
 ```js
 const answerId = req.params.answerId;
