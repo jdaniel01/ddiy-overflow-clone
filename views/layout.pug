@@ -14,7 +14,7 @@ html
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
   block head
   body
-    nav(class="animate__animated animate__slideInDown")
+    nav(class="animate__animated animate__slideInDown navigation-bar")
       .logo-container
         .img-container
           img(src="/images/DDIY-LOGO.png" onclick="location.href=`/`")
@@ -23,24 +23,26 @@ html
       .nav-container
           div(onclick="location.href='/home'") All questions
           div(onclick="location.href='/questions'") Ask a question
-          if (user && user.name)
-            div(onclick=`location.href='/users/logout'`) Logout
+          //- if (user && user.name)
+          //-   div(onclick=`location.href='/users/logout'`) Logout
           //- div(onclick=`location.href='/about'`) About
           
       if (user && user.name)
         .user-container
           .wecome-message Welcome, #{user.name}!
           .img-container
-            img(src= user.avatar onclick=`location.href='/users/${user.id}'`)
+            img(src=user.avatar onclick=`location.href='/users/${user.id}'` id="user-image")
+          .user-nav-container(visibility="hidden")
+            div(onclick=`location.href='/users/logout'`) Logout
       else
-        .nav-container 
-          div(class="demo-btn" onclick=`location.href='/demo'`) Demo
-          div(onclick=`location.href='/users/login'`) Login
-          div(onclick=`location.href='/users/register'`) Register
-        //- .user-container
-          //- .wecome-message Welcome guest!
-          //- .img-container
-          //-   img(src="/images/user-grey.png" onclick="location.href='/users/login'")
+        .user-container
+          .wecome-message Welcome Guest!
+          .img-container
+            img(src="/images/user-grey.png" onclick="location.href='/users/login'" id='user-image')
+          .user-nav-container(visibility="hidden")
+            div(class="demo-btn" onclick=`location.href='/demo'`) Demo
+            div(onclick=`location.href='/users/login'`) Login
+            div(onclick=`location.href='/users/register'`) Register
   .body-container
     block content
     block footer

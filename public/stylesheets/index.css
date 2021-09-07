@@ -51,6 +51,7 @@ nav {
 .nav-container {
   display: flex;
   align-items: center;
+  
 }
 .nav-container div {
   box-sizing: border-box;
@@ -119,6 +120,7 @@ textarea {
   flex-wrap: nowrap;
   margin-top: 1rem;
   justify-self: flex-end;
+  position: relative;
 }
 .user-container img {
   height: 7rem;
@@ -126,6 +128,11 @@ textarea {
 .user-container div {
   padding: 5px;
 }
+
+/* .user-nav-container {
+  position: absolute;
+  z-index: 5;
+} */
 
 .index-container {
   padding: 25px;
