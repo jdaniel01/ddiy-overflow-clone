@@ -12,8 +12,24 @@ window.addEventListener("load", (event) => {
 
     let userContainer = document.querySelectorAll('user-container');
     let userNav = document.querySelectorAll('user-nav-container');
-    userContainer.addEventListener('mouseover', e => {
+    userContainer.addEventListener('mouseenter', e => {
         userNav.visibility = visible;
+
+    })
+    userContainer.addEventListener('mouseleave', e => {
+        let mousedOver = false;
+        userNav.addEventListener('mouseenter', e => {
+            mousedOver = true;
+        })
+        if (mousedOver) {
+            userNav.visibility = visible;
+        }
+        else {
+            mousedOver = false;
+            userNav.visibility = hidden;
+        }
+
+    }
     })
 
 })

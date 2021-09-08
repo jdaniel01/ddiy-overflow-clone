@@ -32,14 +32,14 @@ html
           .wecome-message Welcome, #{user.name}!
           .img-container
             img(src=user.avatar onclick=`location.href='/users/${user.id}'` id="user-image")
-          .user-nav-container(visibility="hidden")
+          .user-nav-container
             div(onclick=`location.href='/users/logout'`) Logout
       else
         .user-container
           .wecome-message Welcome Guest!
           .img-container
             img(src="/images/user-grey.png" onclick="location.href='/users/login'" id='user-image')
-          .user-nav-container(visibility="hidden")
+          .user-nav-container
             div(class="demo-btn" onclick=`location.href='/demo'`) Demo
             div(onclick=`location.href='/users/login'`) Login
             div(onclick=`location.href='/users/register'`) Register

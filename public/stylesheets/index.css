@@ -121,7 +121,13 @@ textarea {
   margin-top: 1rem;
   justify-self: flex-end;
   position: relative;
+  
 }
+
+.user-container:hover > .user-nav-container{
+  visibility: visible;
+}
+
 .user-container img {
   height: 7rem;
 }
@@ -130,9 +136,16 @@ textarea {
 }
 
 /* .user-nav-container {
-  position: absolute;
-  z-index: 5;
+  visibility: hidden;
 } */
+.user-nav-container{
+  visibility: hidden;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: -50px;
+
+}
 
 .index-container {
   padding: 25px;
