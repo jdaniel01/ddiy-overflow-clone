@@ -51,10 +51,7 @@ router.get(
       if (results.length) {
         res.render("searches", { title: "Search Results", results });
       } else {
-        res.render("searches", {
-          title: "Search Results",
-          message: `No results found for "${filter}".`
-        });
+        res.render("searches", { title: "Search Results", message: `Your search for "${filter}" yeilded no results.` })
       }
     } else {
       res.render("searches", {
