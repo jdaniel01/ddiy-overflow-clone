@@ -26,7 +26,7 @@ nav {
   display: flex;
   background-color: #fdf0d5;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -114,7 +114,7 @@ textarea {
 }
 
 .user-container {
-  font-size: 20pt;
+  font-size: 16pt;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -129,7 +129,7 @@ textarea {
 }
 
 .user-container img {
-  height: 7rem;
+  height: 5rem;
 }
 .user-container div {
   padding: 5px;
@@ -141,10 +141,28 @@ textarea {
 .user-nav-container{
   visibility: hidden;
   display: flex;
-  justify-content: flex-end;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
   position: absolute;
-  bottom: -50px;
+  top: 100%;
+  right: 0%;
+  padding: none;
+  font-size: 20pt;
+  background-color: rgb(230, 238, 224);
+  border:.5px solid hsl(131, 9%, 24%);
+}
 
+.user-nav-container>div{
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.user-nav-container>div:hover {
+  background-color:hsl(129, 11%, 36%);
+  color:rgb(230, 238, 224);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .index-container {

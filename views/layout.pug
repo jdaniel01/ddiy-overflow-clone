@@ -21,8 +21,8 @@ html
         .search-container
           input(type="search" id="search-filter" placeholder="Looking for something?")
       .nav-container
-          div(onclick="location.href='/home'") All questions
-          div(onclick="location.href='/questions'") Ask a question
+          div(onclick="location.href='/home'") Browse Questions
+          div(onclick="location.href='/questions'") Ask
           //- if (user && user.name)
           //-   div(onclick=`location.href='/users/logout'`) Logout
           //- div(onclick=`location.href='/about'`) About
@@ -34,6 +34,7 @@ html
             img(src=user.avatar onclick=`location.href='/users/${user.id}'` id="user-image")
           .user-nav-container
             div(onclick=`location.href='/users/logout'`) Logout
+            div(onclick=`location.href='/users/${user.id}'`) Profile
       else
         .user-container
           .wecome-message Welcome Guest!

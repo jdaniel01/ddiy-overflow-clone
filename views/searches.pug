@@ -10,6 +10,7 @@ block content
             .sorted-display
                 span#filter Search Results
         .search-result-body--container
+        if(result)
            each result in results
             if (result.title)
                 .search-result-container(class="search-result--container" onclick=`location.href="/questions/${result.id}"`)
@@ -24,3 +25,6 @@ block content
                     .search-result--content
                         span #{result.answer.slice(0, (50 || null))}...
                         span#search-result--time= result.updatedAt
+        else 
+            .search-result-container(class="search-result--container")
+                div.no-result Your search yielded no results
