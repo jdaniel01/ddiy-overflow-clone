@@ -7,7 +7,7 @@ const { Op } = require("sequelize");
 router.get(
   "/:filter",
   asyncHandler(async (req, res) => {
-    const filter = req.params.filter;
+    const filter = req.params.filter.toLowerCase();
     // TODO need to change filter into a new regex with the correct symbols (ie parens, brace, etc.)
     console.log(filter);
     let results = [];
@@ -17,12 +17,8 @@ router.get(
         where: {
           [Op.or]: [
             //TODO implement new regext with query.
-            { title: { [Op.startsWith]: filter } },
-            { title: { [Op.endsWith]: filter } },
             { title: { [Op.substring]: filter } },
             { title: { [Op.iLike]: filter } },
-            { query: { [Op.startsWith]: filter } },
-            { query: { [Op.endsWith]: filter } },
             { query: { [Op.substring]: filter } },
             { query: { [Op.iLike]: filter } },
           ],
@@ -34,12 +30,9 @@ router.get(
       let answers = await Answer.findAll({
         where: {
           [Op.or]: [
-            { answer: { [Op.startsWith]: filter } },
-            { answer: { [Op.endsWith]: filter } },
+
             { answer: { [Op.substring]: filter } },
             { answer: { [Op.iLike]: filter } },
-            { content: { [Op.startsWith]: filter } },
-            { content: { [Op.endsWith]: filter } },
             { content: { [Op.substring]: filter } },
             { content: { [Op.iLike]: filter } },
           ],
