@@ -6,8 +6,8 @@ block content
     for answer in answers
         div(class="answer-body")
             div(class="answer-votes")
-                i(class="fas fa-chevron-up" onclick=`location.href="/questions/${question.id}/answer/${answer.id}/upvote"`) 
+                i(class="fas fa-chevron-up" id='upVote') 
                 div(class="answer-vote")
                     if(answer.Votes.length > 0)
                         div(class="number-of-votes") + #{answer.Votes.length}
-                i(class="fas fa-chevron-down" onclick=`location.href="/questions/${question.id}/answer/${answer.id}/downvote"`)
+                i(class="fas fa-chevron-down" id='downVote')

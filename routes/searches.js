@@ -7,7 +7,7 @@ const { Op } = require("sequelize");
 router.get(
   "/:filter",
   asyncHandler(async (req, res) => {
-    const filter = req.params.filter.toLowerCase();
+    const filter = req.params.filter;
     // TODO need to change filter into a new regex with the correct symbols (ie parens, brace, etc.)
     console.log(filter);
     let results = [];
@@ -17,9 +17,9 @@ router.get(
         where: {
           [Op.or]: [
             //TODO implement new regext with query.
-            { title: { [Op.substring]: filter } },
+            { title: { [Op.substring]: '%' + filter + '%' } },
             { title: { [Op.iLike]: filter } },
-            { query: { [Op.substring]: filter } },
+            { query: { [Op.substring]: '%' + filter + '%' } },
             { query: { [Op.iLike]: filter } },
           ],
         },
@@ -30,11 +30,10 @@ router.get(
       let answers = await Answer.findAll({
         where: {
           [Op.or]: [
-
-            { answer: { [Op.substring]: filter } },
-            { answer: { [Op.iLike]: filter } },
-            { content: { [Op.substring]: filter } },
-            { content: { [Op.iLike]: filter } },
+            { answer: { [Op.substring]: '%' + filter + '%' } },
+            { answer: { [Op.iLike]: '%' + filter + '%' } },
+            { content: { [Op.substring]: '%' + filter + '%' } },
+            { content: { [Op.iLike]: '%' + filter + '%' } },
           ],
         },
       });
@@ -44,7 +43,10 @@ router.get(
       if (results.length) {
         res.render("searches", { title: "Search Results", results });
       } else {
-        res.render("searches", { title: "Search Results", message: `Your search for "${filter}" yeilded no results.` })
+        res.render("searches", {
+          title: "Search Results",
+          message: `Your search for "${filter}" yeilded no results.`
+        })
       }
     } else {
       res.render("searches", {

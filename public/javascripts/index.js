@@ -28,8 +28,6 @@ window.addEventListener("load", (event) => {
             mousedOver = false;
             userNav.visibility = hidden;
         }
-
-    }
     })
 
 })

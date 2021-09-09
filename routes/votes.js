@@ -34,22 +34,22 @@ router.get(
     } else {
       await vote.destroy();
     }
+    res.status(304)
+    // const answers = await Answer.findAll({
+    //   where: {
+    //     questionId: question.id,
+    //   },
+    //   include: [User, Vote],
+    // });
 
-    const answers = await Answer.findAll({
-      where: {
-        questionId: question.id,
-      },
-      include: [User, Vote],
-    });
-
-    res.redirect(`/questions/${question.id}`);
-    res.render("single-question", {
-      vote,
-      upVote,
-      question,
-      answers,
-      csrfToken: req.csrfToken(),
-    });
+    // res.redirect(`/questions/${question.id}`);
+    // res.render("single-question", {
+    //   vote,
+    //   upVote,
+    //   question,
+    //   answers,
+    //   csrfToken: req.csrfToken(),
+    // });
   })
 );
 
@@ -86,30 +86,31 @@ router.get(
       //     res.redirect('back');
       // }
     }
-    let userAuth = req.session.auth.userId;
-    const isUserLoggedIn = userAuth === question.ownerId ? true : false;
+    res.status(304)
+    // let userAuth = req.session.auth.userId;
+    // const isUserLoggedIn = userAuth === question.ownerId ? true : false;
 
-    // const votes = await Vote.findAll({
-    //     where: {
-    //         answerId
-    //     }
-    // })
-    const answers = await Answer.findAll({
-      where: {
-        questionId: question.id,
-      },
-      include: [User, Vote],
-    });
-    res.redirect(`/questions/${question.id}`);
+    // // const votes = await Vote.findAll({
+    // //     where: {
+    // //         answerId
+    // //     }
+    // // })
+    // const answers = await Answer.findAll({
+    //   where: {
+    //     questionId: question.id,
+    //   },
+    //   include: [User, Vote],
+    // });
+    // res.redirect(`/questions/${question.id}`);
 
-    res.render("single-question", {
-      vote,
-      downVote,
-      question,
-      answers,
-      isUserLoggedIn,
-      csrfToken: req.csrfToken(),
-    });
+    // res.render("single-question", {
+    //   vote,
+    //   downVote,
+    //   question,
+    //   answers,
+    //   isUserLoggedIn,
+    //   csrfToken: req.csrfToken(),
+    // });
   })
 );
 

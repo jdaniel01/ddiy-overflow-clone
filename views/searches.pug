@@ -8,7 +8,6 @@ block content
     .index-container
         .index-topbar--container
             .sorted-display
-                span#filter Search Results
         .search-result-body--container
         if (results)
            each result in results
@@ -26,4 +25,4 @@ block content
                         span #{result.answer.slice(0, (50 || null))}...
                         span#search-result--time= result.updatedAt
         else 
-            div There are no results for #{filter}
+            div Sorry! #{message}
