@@ -11,7 +11,7 @@ router.get(
   "/questions/:id/answer/:answerId/upvote",
   csrfProtection,
   asyncHandler(async (req, res) => {
-    const answerId = req.params.answerId;
+    const answerId = parseInt(req.params.answerId, 10);
     const ownerId = req.session.auth.userId;
     const questionId = parseInt(req.params.id, 10);
     const question = await Question.findByPk(questionId, {

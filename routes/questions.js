@@ -6,6 +6,7 @@ const db = require("../db/models");
 const { User, Question, Answer, Vote } = db;
 const { csrfProtection, asyncHandler } = require("./utils");
 const { loginUser, logoutUser, requireAuth } = require("../auth");
+const { voteDown, voteUp } = require("../public/javascripts/votes");
 
 const questionValidators = [
   check("title")
@@ -94,6 +95,8 @@ router.get(
       question,
       isUserLoggedIn,
       isOwner,
+      voteUp,
+      voteDown,
       csrfToken: req.csrfToken(),
     });
   })

@@ -6,6 +6,7 @@ const db = require("../db/models");
 const { User, Question, Answer, Vote } = db;
 const { csrfProtection, asyncHandler } = require("./utils");
 const { loginUser, logoutUser, requireAuth } = require("../auth");
+const { voteUp, voteDown } = require("../public/javascripts/votes")
 
 const answerValidators = [
   check("answer")
@@ -52,6 +53,8 @@ router.post(
       errors,
       answers,
       question,
+      voteUp,
+      voteDown,
       answerForQuestion,
       isOwner,
     });
