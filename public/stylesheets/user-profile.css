@@ -62,40 +62,107 @@ body{
   cursor: pointer;
 }
 
-.profile-main-container {
+#profile-main-container {
     padding-left: 20px;
+}
+#profile-question{
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}
+
+.profile-question--container{
+  border: .5px solid #507255;
+  margin-bottom: .25rem;
+  background-color: #ebebeb;
+  padding: 1rem;
+  
+
+}
+
+.profile-question--container:hover {
+  background-color: #2c3645;
+  color: #fdf0d5;
+  font-weight: 500;
+
+}
+
+.profile-question--title {
+  font-size: 16pt;
+}
+
+.profile-question--updated {
+  font-size: 12pt;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .user-questions {
-  background-color: #ebebeb;
-
+  background-color: white;
   box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%);
   padding: 2em;
   display: flex;
+  flex-flow: column nowrap;
   /* background-color: white; */
-  justify-content: space-evenly;
-  align-self: center;
-  /* border: px solid #507255; */
+  justify-content: flex-start;
+  align-self: flex-start;
+  /* border: .5px solid #507255; */
   /* border-radius: 15px; */
   /* padding: 2%; */
-  width: 90%;
-  margin: 1%;
+  /* width: 90%; */
+  /* box-sizing: border-box; */
+  margin-left: 7%;
+  margin-right: 7%;
   text-align: left;
+  overflow-y: scroll;
+  height: 300px;
+}
+
+.profile-answer--container{
+  border: .5px solid #507255;
+  margin-bottom: .25rem;
+  background-color: #ebebeb;
+  padding: 1rem;
+}
+
+.profile-answer--container:hover {
+  background-color: #2c3645;
+  color: #fdf0d5;
+  font-weight: 500;
+}
+
+.profile-answer--title {
+  font-size: 14pt;
+}
+
+.profile-answer--updated {
+  font-size: 12pt;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .user-answers {
-  background-color: #ebebeb;
+  background-color: white;
 
   box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%);
   padding: 2em;
   display: flex;
+  flex-flow: column nowrap;
   /* background-color: white; */
-  justify-content: space-evenly;
-  align-self: center;
+  justify-content: flex-start;
+  align-self: flex-start;
   /* border: px solid #507255; */
   /* border-radius: 15px; */
   /* padding: 2%; */
-  width: 90%;
-  margin: 1%;
+  margin-left: 7%;
+  margin-right: 7%;
   text-align: left;
+  overflow-y: scroll;
+  height: 400px;
+}
+
+::-webkit-scrollbar{
+  background: transparent;
 }

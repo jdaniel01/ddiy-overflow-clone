@@ -25,15 +25,15 @@ block content
                     h4 Bio
                     =user.bio
         div
+            h1#profile-question #{user.name}'s Questions
             div(class="user-questions")
-                h4#profile-question #{user.name}'s Questions
-                    each question in user.Questions
-                        .profile-question--container(onclick=`location.href="/questions/${question.id}"`)
-                            .profile-question--title=question.title
-                            .profile-question--updated=question.updatedAt
+                each question in user.Questions
+                    .profile-question--container(onclick=`location.href="/questions/${question.id}"`)
+                        .profile-question--title=question.title
+                        .profile-question--updated=question.updatedAt
+            h1#profile-question #{user.name}'s Answers
             div(class="user-answers")
-                h4#profile-question #{user.name}'s Answers
-                    each answer in user.Answers
-                        .profile-answer--container
-                            .profile-answer--title=answer.answer
-                            .profile-answer--updated=answer.updatedAt
+                each answer in user.Answers
+                    .profile-answer--container
+                        .profile-answer--title=answer.answer
+                        .profile-answer--updated=answer.updatedAt
