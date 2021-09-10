@@ -43,6 +43,8 @@ const requireAuth = (req, res, next) => {
   return next();
 };
 
+// Need to add verification that current user is equal to req.params for user id (i.e. profile page)
+
 module.exports = {
   loginUser,
   restoreUser,
