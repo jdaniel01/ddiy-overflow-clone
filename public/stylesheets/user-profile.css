@@ -15,23 +15,31 @@ hover clicked touched link - #00cca3
 
 */
 body{
-    padding-top: 20px;
+  padding-top: 20px;
 
+}
+
+.profile-wrapper{
+  width: 100%;
 }
 
 .profile-container {
   display: flex;
-  background-color: #e0e0e0;
+  flex-flow: row nowrap;
+  box-sizing: border-box;
+  background-color: white;
+  width: 100%;
 }
 
 .profile-side-container {
+  display: flex;
   flex-direction: column;
-  flex-basis: 200px;
   background-color: #77777e;
+  width: 200px;
 }
 
 .profile-avatar-container {
-  display: inline-block;
+  display: flex;
   margin: 20px;
   padding: 6px;
   background-color: white;
@@ -62,9 +70,39 @@ body{
   cursor: pointer;
 }
 
-#profile-main-container {
-    padding-left: 20px;
+.profile-main-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: flex-start;
 }
+
+.user-info--group{
+  display: flex;
+  box-sizing: border-box;
+  flex-flow: row nowrap;
+  width: 100%;
+  border: 1rem solid #507255;
+  padding: 1rem;
+  justify-content: space-between;
+  font-size: 18pt;
+}
+
+.user-info--group>h4{
+  font-size: 16pt;
+}
+
+.user-info{
+  display: flex;
+  justify-content: flex-start;
+}
+.user-info>h4{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 #profile-question{
   display: flex;
   justify-content: center;

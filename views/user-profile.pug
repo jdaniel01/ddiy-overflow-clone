@@ -4,7 +4,7 @@ include utils
 
 block content
     link(rel="stylesheet" href="/stylesheets/user-profile.css")
-    div
+    div(class="profile-wrapper")
         div(class="profile-container")
             div(class="profile-side-container")
                 div(class="profile-avatar-container")
@@ -15,23 +15,24 @@ block content
                 div
                     div(class="edit-profile" onclick=`location.href='/users/edit/' + ${user.id}`) Edit Profile
             div(class="profile-main-container")
-                div
-                    h4 Username
-                    =user.name
-                div
-                    h4 Email
-                    =user.email
-                div
+                .user-info--group
+                    div
+                        h4 Username
+                        =user.name
+                    div
+                        h4 Email
+                        =user.email
+                .user-info
                     h4 Bio
-                    =user.bio
+                    div #{user.bio}
         div
-            h1#profile-question #{user.name}'s Questions
+            h1#profile-question Your Questions
             div(class="user-questions")
                 each question in user.Questions
                     .profile-question--container(onclick=`location.href="/questions/${question.id}"`)
                         .profile-question--title=question.title
                         .profile-question--updated=question.updatedAt
-            h1#profile-question #{user.name}'s Answers
+            h1#profile-question Your Answers
             div(class="user-answers")
                 each answer in user.Answers
                     .profile-answer--container
