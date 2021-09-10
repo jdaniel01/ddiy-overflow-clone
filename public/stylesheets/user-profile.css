@@ -29,6 +29,7 @@ body{
   box-sizing: border-box;
   background-color: white;
   width: 100%;
+
 }
 
 .profile-side-container {
@@ -76,30 +77,44 @@ body{
   flex-flow: column nowrap;
   width: 100%;
   align-items: flex-start;
+  border: .25rem solid #507255;
+  
 }
 
 .user-info--group{
   display: flex;
   box-sizing: border-box;
   flex-flow: row nowrap;
+  align-items: flex-start;
   width: 100%;
-  border: 1rem solid #507255;
+  border: .5px solid #507255;
   padding: 1rem;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 18pt;
 }
 
 .user-info--group>h4{
+  display: flex;
+  justify-content: center;
   font-size: 16pt;
 }
 
 .user-info{
   display: flex;
+  box-sizing: border-box;
+  flex-flow: column nowrap;
+  height: 100%;
+  width: 100%;
   justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  font-size: 18pt;
+  background-color: #ebebeb;
 }
 .user-info>h4{
   display: flex;
   width: 100%;
+  font-size: 16pt;
   justify-content: center;
 }
 
@@ -145,7 +160,7 @@ body{
   /* background-color: white; */
   justify-content: flex-start;
   align-self: flex-start;
-  /* border: .5px solid #507255; */
+  border: .5px solid #507255;
   /* border-radius: 15px; */
   /* padding: 2%; */
   /* width: 90%; */
@@ -191,7 +206,7 @@ body{
   /* background-color: white; */
   justify-content: flex-start;
   align-self: flex-start;
-  /* border: px solid #507255; */
+  border: .5px solid #507255;
   /* border-radius: 15px; */
   /* padding: 2%; */
   margin-left: 7%;
