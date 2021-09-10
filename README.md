@@ -42,6 +42,7 @@
 
 ## Key Features
 
+- Utilizes AJAX to send fetches to database based on value retrieved from searchbar with JavaScript event listeners.
 - Uses AJAX and Faker.js to generate hundred of random generated questions/users/votes.
 - Uses form validation, auth and csrfProtection to prevent csrf attacks and add user validation.
 - Has a demo page that allows visitors to log in and have registered user privileges.
@@ -55,7 +56,6 @@
 * The following code allows us to get to a specific question based on its id. Once the question is displayed, the associated answers should be displayed. 
 
 ```js
-const questionId = parseInt(req.params.id, 10);
 const questionId = parseInt(req.params.id, 10);
 const question = await Question.findByPk(questionId, {
   include: [User, Answer],

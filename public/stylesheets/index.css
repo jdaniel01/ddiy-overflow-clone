@@ -189,9 +189,22 @@ textarea {
   margin: 1%;
 }
 
+.index-question--outer0{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  overflow: scroll;
+  height: 600px;
+}
+
+::-webkit-scrollbar{
+  border: transparent;
+  background-color: #e6eee0;
+}
+
 .index-question--container {
   background-color: #ebebeb;
-
+  box-sizing: border-box;
   /* box-shadow: 1em 2em 2em -2em rgb(0 0 0 / 75%); */
   padding: 2em;
   display: flex;
@@ -201,8 +214,8 @@ textarea {
   /* border: px solid #507255; */
   /* border-radius: 15px; */
   /* padding: 2%; */
-  width: 90%;
-  margin: 1%;
+  width: 80%;
+  margin: 1rem;
   text-align: left;
   border: 1px solid hsl(129, 11%, 36%);
 }
