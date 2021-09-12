@@ -9,13 +9,11 @@ const { Op } = require("sequelize");
 const getFilters = async (req, res, next) => {
   //newest filter
   let newest = await db.Question.findAll({
-    order: [["updatedAt", "DESC"]],
-    limit: 10,
+    order: [["updatedAt", "DESC"]]
   });
   //oldest
   let oldest = await db.Question.findAll({
-    order: [["updatedAt", "ASC"]],
-    limit: 10,
+    order: [["updatedAt", "ASC"]]
   });
   //most answers
   //first get all answers
