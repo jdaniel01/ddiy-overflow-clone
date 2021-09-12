@@ -189,10 +189,10 @@ textarea {
   margin: 1%;
 }
 
-.index-question--outer0{
-  display: flex;
+div[class*='index-question--outer']{
+  /* display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  align-items: center; */
   overflow: scroll;
   height: 600px;
 }

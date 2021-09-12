@@ -21,7 +21,7 @@ block content
         button(onclick=`switchDisplay('mostAnswered')`) Most Answered
     .index-body--container
       each questions, index in questionsArr
-        div(class="index-question--outer"+index)
+        div(class="index-question--outer"+index hidden=true)
           each question in questions
             div(class='index-question--container' onclick=`location.href='/questions/' + ${question.id}`)
               .index-question--info 
