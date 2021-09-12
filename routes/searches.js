@@ -41,7 +41,7 @@ router.get(
         results.push(...answers);
       }
       if (results.length) {
-        res.render("searches", { title: "Search Results", results });
+        res.render("searches", { title: `Search Results for "${filter}"`, results });
       } else {
         res.render("searches", {
           title: "Search Results",
